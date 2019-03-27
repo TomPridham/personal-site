@@ -15,9 +15,10 @@ fn main() {
         Err(why) => panic!("couldn't create {}: {}", display, why.description()),
         Ok(file) => file,
     };
-    let name = "Tom Pridham";
+    let name = "tom pridham";
     let markup = html! {
-        p { "Hi, " (name) "!" }
+        p { "hi, i'm " (name) "!" }
+        p { "nice to meet you." }
     };
     match file.write_all(&markup.into_string().as_bytes()) {
         Err(why) => {
