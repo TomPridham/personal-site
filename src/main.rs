@@ -8,7 +8,7 @@ use std::path::Path;
 use maud::html;
 
 fn main() {
-    let path = Path::new("doc/index.html");
+    let path = Path::new("docs/index.html");
     let display = path.display();
 
     let mut file = match File::create(&path) {
