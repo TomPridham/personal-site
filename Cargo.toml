@@ -1,0 +1,8 @@
+[package]
+name = "portfolio"
+version = "0.1.0"
+authors = ["Tom Pridham <pridham.tom@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+maud = "0.20.0"
