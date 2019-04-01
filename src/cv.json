@@ -1,0 +1,13 @@
+[
+  {
+    "title": "software engineer",
+    "company": "jane",
+    "time": "oct 2017 - present",
+    "technology": ["javascript", "react", "flow", "graphql", "c#"],
+    "duties": [
+      "mentor coworkers",
+      "add types to untyped javascript projects and assist coworkers in resolving type errors and issues",
+      "complete features based on designs "
+    ]
+  }
+]
