@@ -6,3 +6,4 @@ edition = "2018"
 
 [dependencies]
 maud = "0.20.0"
+serde = "1.0.90"
