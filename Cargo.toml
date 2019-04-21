@@ -7,3 +7,8 @@ edition = "2018"
 [dependencies]
 maud = "0.20.0"
 serde = "1.0.90"
+
+[dev-dependencies.cargo-husky]
+version = ""
+default-features = false
+features = ["user-hooks"]
