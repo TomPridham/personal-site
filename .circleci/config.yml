@@ -1,15 +1,34 @@
-# Use the latest 2.1 version of CircleCI pipeline processing engine, see https://circleci.com/docs/2.0/configuration-reference/
-version: 2.1
+version: 2
 
-# Use a package of configuration called an orb, see https://circleci.com/docs/2.0/orb-intro/
-orbs:
-  # Declare a dependency on the welcome-orb
-  welcome: circleci/welcome-orb@0.3.1
+jobs:
+  build:
+    docker:
+      # The image used to build our project, build
+      # your own using the Dockerfile provided below
+      # and replace here. I put my own image here for
+      # the example.
+      - image: abronan/rust-circleci:latest
 
-# Orchestrate or schedule a set of jobs, see https://circleci.com/docs/2.0/workflows/
-workflows:
-  # Name the workflow "Welcome"
-  Welcome:
-    # Run the welcome/run job in its own container
-    jobs:
-      - welcome/run
+    steps:
+      - checkout
+      - restore_cache:
+          key: project-cache
+      - run:
+          name: Check formatting
+          command: |
+            rustfmt --version
+            cargo fmt -- --write-mode=diff
+      - run:
+          name: Nightly Build
+          command: |
+            rustup run nightly rustc --version --verbose
+            rustup run nightly cargo --version --verbose
+            rustup run nightly cargo build
+      - run:
+          name: Test
+          command: rustup run stable cargo test
+      - save_cache:
+          key: project-cache
+          paths:
+            - "~/.cargo"
+            - "./target"
