@@ -1,6 +1,5 @@
 #!/bin/sh
 
 cargo run
-cargo bump patch
-version = cargo bump -v
-git commit -am $version
+VERSION="$(cargo bump patch)"
+git commit -am "${VERSION}"
