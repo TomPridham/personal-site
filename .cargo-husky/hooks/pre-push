@@ -1,4 +1,6 @@
 #!/bin/sh
 
 cargo run
-echo "hello"
+cargo bump patch
+version = cargo bump -v
+git commit -am $version
