@@ -1,5 +1,7 @@
 #!/bin/sh
 
 cargo run
-VERSION="$(cargo bump patch)"
+LEVEL="$(git log -1 --pretty=format:'%s' | awk -F '[][]' '{print $s}')"
+VERSION="$(cargo bump ${LEVEL})"
 git commit -am "${VERSION}"
+git push
