@@ -2,5 +2,5 @@
 
 cargo clippy -- -D warnings
 cargo fmt -- --check
-git add
+git add -u
 

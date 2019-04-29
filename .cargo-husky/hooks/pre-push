@@ -4,4 +4,4 @@ cargo run
 LEVEL="$(git log -1 --pretty=format:'%s' | awk -F '[][]' '{print $s}')"
 VERSION="$(cargo bump ${LEVEL})"
 git commit -am "${VERSION}"
-git push
+git push --no-verify
