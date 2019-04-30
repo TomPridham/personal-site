@@ -5,4 +5,4 @@ LEVEL="$(git log -1 --pretty=format:'%s' | awk -F '[][]' '{print $2}')"
 VERSION="$(cargo bump ${LEVEL})"
 git commit -am "${VERSION}"
 git push --no-verify
-return 1
+exit 1
