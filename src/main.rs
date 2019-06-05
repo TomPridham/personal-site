@@ -1,11 +1,15 @@
 #![feature(proc_macro_hygiene)]
 
 extern crate maud;
-use maud::html;
+mod cv;
+mod head;
+use maud::{DOCTYPE, html};
 use std::error::Error;
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
+use cv::cv;
+use head::head;
 
 fn main() {
     let path = Path::new("index.html");
@@ -17,10 +21,12 @@ fn main() {
         }
         Ok(file) => file,
     };
-    let name = "tom pridham";
     let markup = html! {
-        p { "hi, i'm " (name) "!" }
-        p { "nice to meet you." }
+        (DOCTYPE)
+        (head())
+        body {
+            (cv())
+        }
     };
     match file.write_all(&markup.into_string().as_bytes()) {
         Err(why) => {
