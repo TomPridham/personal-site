@@ -18,40 +18,27 @@ struct CVItem {
 
 fn cv_to_html(cv: Vec<CVItem>) -> Markup {
     html! {
-        ({
-            cv.map(|cv_item|{
-                html!{
-                    p{ (cv_item.company ) " - " (cv_item.time)}
-                    p{(cv_item.title)}
-                    p{"duties"}
-                    ul{
-                        (cv_item.duties.map(|duty|{
-                            html!{
-                            li{ (duty) }
-                            }
-                        }))
-                    }
-                    p{"notable achievements"}
-                    ul{
-                        (cv_item.notable_achievements.map(|n|{
-                            html!{
-
-                            li{(n)}
-                            }
-                        }))
-                    }
-                    ul{
-                        (cv_item.technologies.map(|t|{
-                            html!{
-
-                            li{(t)}
-                            }
-                        }))
-                    }
-
+        @for cv_item in  cv{
+            p{(cv_item.company ) " - " (cv_item.time)}
+            p{(cv_item.title)}
+            p{"duties"}
+            ul{
+                @for duty in cv_item.duties{
+                    li{(duty)}
                 }
-            })
-        })
+            }
+            p{"notable achievements"}
+            ul{
+                @for n in cv_item.notable_achievements{
+                    li{(n)}
+                }
+            }
+            ul{
+                @for t in cv_item.technologies{
+                    li{(t)}
+                }
+            }
+        }
     }
 }
 
@@ -74,9 +61,7 @@ pub fn cv() -> Markup {
             p { "hi, i'm " (name) "!" }
             p { "nice to meet you." }
             br;
-            ul {
-
-            }
+            (cv_to_html(cv_items))
         }
     }
 }
