@@ -1,6 +1,9 @@
 #![feature(proc_macro_hygiene)]
 
 extern crate maud;
+extern crate serde;
+extern crate serde_json;
+
 mod cv;
 mod head;
 use maud::{DOCTYPE, html};
