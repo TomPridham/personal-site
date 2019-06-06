@@ -1,8 +1,8 @@
 extern crate maud;
-use maud::{Markup, html};
+use maud::{html, Markup};
 
-pub fn head()->Markup{
-    html!{
+pub fn head() -> Markup {
+    html! {
         head{
             meta charset="utf8";
             meta lang="en-US";

@@ -6,13 +6,13 @@ extern crate serde_json;
 
 mod cv;
 mod head;
-use maud::{DOCTYPE, html};
+use cv::cv;
+use head::head;
+use maud::{html, DOCTYPE};
 use std::error::Error;
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
-use cv::cv;
-use head::head;
 
 fn main() {
     let path = Path::new("index.html");
