@@ -54,7 +54,6 @@ pub fn cv() -> Markup {
         Err(why) => panic!("what the what: {}", why.description()),
         Ok(r) => r,
     };
-    println!("{:?}", cv_items);
 
     html! {
         div id="container"{
