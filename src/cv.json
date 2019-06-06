@@ -11,7 +11,7 @@
       "implemented a bunch of performance improvements to our customer facing site that cut load times in half",
       "successfully pushed for the inclusion of a type library in all new js projects and incremental adoption in existing projects"
     ],
-    "technology": [
+    "technologies": [
       "angularjs",
       "c#",
       "flow",
@@ -35,7 +35,7 @@
       "rewrote an angularjs frontend app used to manage press applicants in angular",
       "wrote a backing node service that handled caching and interacting with a postgres database"
     ],
-    "technology": [
+    "technologies": [
       "angular",
       "express",
       "mongo",
@@ -60,7 +60,7 @@
       "implemented security improvements in the node service",
       "modularized the frontend code and implemented a better build process"
     ],
-    "technology": ["angularjs", "express", "ionic", "mysql", "node"],
+    "technologies": ["angularjs", "express", "ionic", "mysql", "node"],
     "time": "october 2016 - october 2017",
     "title": "web developer"
   },
@@ -76,7 +76,7 @@
       "helped students do things and understand errors",
       "taught a couple classes"
     ],
-    "technology": [
+    "technologies": [
       "angularjs",
       "express",
       "mongo",

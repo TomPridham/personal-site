@@ -1,34 +1,71 @@
 extern crate maud;
-use maud::{Markup,html};
-use std::error::Error;
+use maud::{html, Markup};
 use serde::{Deserialize, Serialize};
-use serde_json::{Result};
+use serde_json;
+use std::error::Error;
 use std::fs::read_to_string;
 use std::path::Path;
 
-#[derive(Debug,Serialize, Deserialize)]
-struct CVItem{
+#[derive(Debug, Serialize, Deserialize)]
+struct CVItem {
     company: String,
     duties: Vec<String>,
     notable_achievements: Vec<String>,
-    technology: Vec<String>,
+    technologies: Vec<String>,
     time: String,
-    title:String
+    title: String,
 }
 
-pub fn cv() -> Markup{
+fn cv_to_html(cv: Vec<CVItem>) -> Markup {
+    html! {
+        ({
+            cv.map(|cv_item|{
+                html!{
+                    p{ (cv_item.company ) " - " (cv_item.time)}
+                    p{(cv_item.title)}
+                    p{"duties"}
+                    ul{
+                        (cv_item.duties.map(|duty|{
+                            html!{
+                            li{ (duty) }
+                            }
+                        }))
+                    }
+                    p{"notable achievements"}
+                    ul{
+                        (cv_item.notable_achievements.map(|n|{
+                            html!{
+
+                            li{(n)}
+                            }
+                        }))
+                    }
+                    ul{
+                        (cv_item.technologies.map(|t|{
+                            html!{
+
+                            li{(t)}
+                            }
+                        }))
+                    }
+
+                }
+            })
+        })
+    }
+}
+
+pub fn cv() -> Markup {
     let name = "tom pridham";
-    let cv_file = match read_to_string(Path::new("src/cv.json")){
-        Err(why)=>{
+    let cv_file = match read_to_string(Path::new("src/cv.json")) {
+        Err(why) => {
             panic!("somethings junked: {}", why.description());
-        },
+        }
         Ok(file) => file,
     };
-    let cv_items: Vec<CVItem> =match serde_json::from_str(cv_file.as_str()){
-        Err(why)=>{
-            panic!("what the what: {}", why.description())
-        },
-        Ok(r) => r
+    let cv_items: Vec<CVItem> = match serde_json::from_str(cv_file.as_str()) {
+        Err(why) => panic!("what the what: {}", why.description()),
+        Ok(r) => r,
     };
     println!("{:?}", cv_items);
 
