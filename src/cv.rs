@@ -18,26 +18,29 @@ struct CVItem {
 
 fn cv_to_html(cv: Vec<CVItem>) -> Markup {
     html! {
-        @for cv_item in  cv{
-            p{(cv_item.company ) " - " (cv_item.time)}
+        h1{"job history"}
+        @for cv_item in cv {
+            h2{(cv_item.company ) " - " (cv_item.time)}
             p{(cv_item.title)}
-            p{"duties"}
+            h3{"duties"}
             ul{
                 @for duty in cv_item.duties{
                     li{(duty)}
                 }
             }
-            p{"notable achievements"}
+            h3{"notable achievements"}
             ul{
                 @for n in cv_item.notable_achievements{
                     li{(n)}
                 }
             }
+            h3{"technologies used"}
             ul{
                 @for t in cv_item.technologies{
                     li{(t)}
                 }
             }
+            br;
         }
     }
 }
