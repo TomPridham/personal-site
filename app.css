@@ -1,1 +1,1 @@
-body{box-sizing:border-box;padding:20px;font-family:Verdana,Arial,monospace;}
+body{box-sizing:border-box;padding:20px;font-family:Verdana,Arial,monospace;}.space-between{display:flex;justify-content:space-between;}#header{padding:8px 0;}#menu{list-style-type:none;display:flex;margin:0;}#menu li{width:100%;padding:0 8px;}

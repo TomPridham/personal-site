@@ -18,22 +18,20 @@ pub fn header_script(location: &str) -> Markup {
 
 pub fn header_html() -> Markup {
     html! {
-        div class="flex-row space-between"{
-            span id="home" {"tompridham.me"}
-            div{
-                ul{
-                    li{
-                        a id="cv" to="/cv"{"cv"}
-                    }
-                    li{
-                        a id="about" to="/about"{"about"}
-                    }
-                    li{
-                        a id="projects" to="/projects"{"projects"}
-                    }
-                    li{
-                        a to="https://github.com/tompridham"{"github"}
-                    }
+        div id="header" class="space-between"{
+            span id="home"{"tompridham.me"}
+            ul id="menu" {
+                li{
+                    a id="cv" to="/cv"{"cv"}
+                }
+                li{
+                    a id="about" to="/about"{"about"}
+                }
+                li{
+                    a id="projects" to="/projects"{"projects"}
+                }
+                li{
+                    a to="https://github.com/tompridham"{"github"}
                 }
             }
         }
