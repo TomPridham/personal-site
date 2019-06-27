@@ -3,17 +3,20 @@ use maud::{html, Markup};
 
 pub fn header_script(location: &str) -> Markup {
     html! {
-          script type="javascript"{
-"document
-  .querySelector('.active-header')
-  .classList()
-  .remove('active-header')"
-    "document
-  .getElementById("(location)")
-  .classList()
-  .add('active-header')"
-          }
-      }
+        script type="javascript"{
+"
+function(){
+const active = document
+  .querySelector('.active-header');
+if(active){
+  active.classList.remove('active-header');
+}
+document
+  .getElementById('"(location)"')
+  .classList
+  .add('active-header')}()"
+        }
+    }
 }
 
 pub fn header_html() -> Markup {

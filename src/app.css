@@ -17,8 +17,14 @@ body {
   list-style-type: none;
   display: flex;
   margin: 0;
+  box-shadow: 0 1px 3px black;
 }
+
 #menu li {
   width: 100%;
   padding: 0 8px;
+}
+
+.active-header {
+  border-bottom: 1px solid;
 }
