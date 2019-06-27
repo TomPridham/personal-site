@@ -7,8 +7,10 @@ extern crate serde_json;
 
 mod cv;
 mod head;
+mod header;
 use cv::cv;
 use head::head;
+use header::{header_html, header_script};
 use maud::{html, DOCTYPE};
 use minifier::css::minify;
 use std::error::Error;
@@ -30,7 +32,9 @@ fn main() {
         (DOCTYPE)
         (head())
         body {
+            (header_html())
             (cv())
+            (header_script("cv"))
         }
     };
     match file.write_all(&markup.into_string().as_bytes()) {
