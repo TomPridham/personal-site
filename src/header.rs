@@ -3,9 +3,8 @@ use maud::{html, Markup};
 
 pub fn header_script(location: &str) -> Markup {
     html! {
-        script type="javascript"{
+        script type="text/javascript"{
 "
-function(){
 const active = document
   .querySelector('.active-header');
 if(active){
@@ -14,7 +13,7 @@ if(active){
 document
   .getElementById('"(location)"')
   .classList
-  .add('active-header')}()"
+  .add('active-header')"
         }
     }
 }
