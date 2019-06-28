@@ -5,64 +5,77 @@ extern crate minifier;
 extern crate serde;
 extern crate serde_json;
 
+mod about;
 mod cv;
 mod head;
 mod header;
+mod home;
+use about::about;
 use cv::cv;
 use head::head;
 use header::{header_html, header_script};
-use maud::{html, DOCTYPE};
+use home::home;
+use maud::{html, Markup, DOCTYPE};
 use minifier::css::minify;
 use std::error::Error;
-use std::fs::{read_to_string, File};
+use std::fs::{read_to_string, DirBuilder, File};
 use std::io::prelude::*;
 use std::path::Path;
 
-fn main() {
-    let path = Path::new("index.html");
-    let display = path.display();
-
-    let mut file = match File::create(&path) {
-        Err(why) => {
-            panic!("couldn't create {}: {}", display, why.description());
-        }
-        Ok(file) => file,
-    };
-    let markup = html! {
+fn generate_markup(html: Markup, path: &str) -> Markup {
+    html! {
         (DOCTYPE)
         (head())
         body {
             (header_html())
-            (cv())
-            (header_script("cv"))
+            (html)
+            (header_script(path))
         }
-    };
-    match file.write_all(&markup.into_string().as_bytes()) {
-        Err(why) => {
-            panic!("couldn't write to {}: {}", display, why.description());
-        }
-        Ok(_) => println!("success!"),
     }
+}
 
-    let css = match read_to_string(Path::new("src/app.css")) {
-        Err(why) => panic!("couldn't read the css! tragedy:{}", why),
-        Ok(c) => c,
-    };
-    let minified_css = match minify(css.as_str()) {
-        Err(why) => panic!("frickin css {}", why),
-        Ok(mc) => mc,
-    };
+fn generate_html_files() -> Result<(), Box<dyn Error>> {
+    let path = Path::new("index.html");
 
-    let mut file = match File::create(Path::new("app.css")) {
-        Err(why) => {
-            panic!("couldn't create {}: {}", display, why.description());
-        }
-        Ok(file) => file,
-    };
-    match file.write_all(&minified_css.as_bytes()) {
-        Err(why) => {
-            panic!("couldn't write to {}: {}", display, why.description());
-        }
-        Ok(_) => println!("success!"),
+    let mut file = File::create(&path)?;
+    let markup = generate_markup(home(), "home");
+    file.write_all(&markup.into_string().as_bytes())?;
+
+    let a_path = Path::new("about");
+    DirBuilder::new().recursive(true).create(a_path)?;
+    let mut file = File::create(a_path.join(&path))?;
+    let markup = generate_markup(about(), a_path.to_str().unwrap());
+    file.write_all(&markup.into_string().as_bytes())?;
+
+    let cv_path = Path::new("cv");
+    DirBuilder::new().recursive(true).create(cv_path)?;
+    let mut file = File::create(cv_path.join(&path))?;
+    let markup = generate_markup(cv(), cv_path.to_str().unwrap());
+    file.write_all(&markup.into_string().as_bytes())?;
+    Ok(())
+}
+
+fn generate_css_file() -> Result<(), Box<dyn Error>> {
+    let css = read_to_string(Path::new("src/app.css"))?;
+    let minified_css = minify(css.as_str())?;
+    let mut file = File::create(Path::new("app.css"))?;
+    file.write_all(&minified_css.as_bytes())?;
+    Ok(())
+}
+
+fn main() {
+    match generate_html_files() {
+        Err(why) => panic!(
+            "something went wrong generating the html files: {}",
+            why.description()
+        ),
+        Ok(_) => println!("html files generated"),
+    }
+    match generate_css_file() {
+        Err(why) => panic!(
+            "something went wrong generating the css file: {}",
+            why.description()
+        ),
+        Ok(_) => println!("css file generated"),
     }
 }

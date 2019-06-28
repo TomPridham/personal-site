@@ -46,7 +46,6 @@ fn cv_to_html(cv: Vec<CVItem>) -> Markup {
 }
 
 pub fn cv() -> Markup {
-    let name = "tom pridham";
     let cv_file = match read_to_string(Path::new("src/cv.json")) {
         Err(why) => {
             panic!("somethings junked: {}", why.description());
@@ -60,9 +59,7 @@ pub fn cv() -> Markup {
 
     html! {
         div id="container"{
-            p { "hi, i'm " (name) "!" }
-            p { "nice to meet you." }
-            br;
+            h1{"Resume"}
             (cv_to_html(cv_items))
         }
     }

@@ -4,6 +4,10 @@ body {
   font-family: Verdana, Arial, monospace;
 }
 
+a {
+  cursor: pointer;
+}
+
 .space-between {
   display: flex;
   justify-content: space-between;
