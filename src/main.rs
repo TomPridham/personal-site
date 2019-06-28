@@ -52,7 +52,7 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
     let cv_path = Path::new("cv");
     DirBuilder::new().recursive(true).create(cv_path)?;
     let mut file = File::create(cv_path.join(&path))?;
-    let markup = generate_markup(cv(), cv_path.to_str().unwrap());
+    let markup = generate_markup(cv()?, cv_path.to_str().unwrap());
     file.write_all(&markup.into_string().as_bytes())?;
     Ok(())
 }

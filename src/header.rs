@@ -22,16 +22,18 @@ document
 pub fn header_html() -> Markup {
     html! {
         div id="header" class="space-between"{
-            span id="home"{"tompridham.me"}
+            a id="home" href="/"{
+                span {"tompridham.me"}
+            }
             ul id="menu" {
                 li{
-                    a id="cv" href="cv"{"cv"}
+                    a id="cv" href="/cv"{"cv"}
                 }
                 li{
-                    a id="about" href="about"{"about"}
+                    a id="about" href="/about"{"about"}
                 }
                 li{
-                    a id="projects" href="projects"{"projects"}
+                    a id="projects" href="/projects"{"projects"}
                 }
                 li{
                     a href="https://github.com/tompridham"{"github"}

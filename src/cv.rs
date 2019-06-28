@@ -16,10 +16,13 @@ struct CVItem {
     title: String,
 }
 
-fn cv_to_html(cv: Vec<CVItem>) -> Markup {
-    html! {
+pub fn cv() -> Result<Markup, Box<dyn Error>> {
+    let cv_file = read_to_string(Path::new("src/cv.json"))?;
+    let cv_items: Vec<CVItem> = serde_json::from_str(cv_file.as_str())?;
+
+    let cv_html = html! {
         h1{"job history"}
-        @for cv_item in cv {
+        @for cv_item in cv_items {
             h2{(cv_item.company ) " - " (cv_item.time)}
             p{(cv_item.title)}
             h3{"duties"}
@@ -40,27 +43,7 @@ fn cv_to_html(cv: Vec<CVItem>) -> Markup {
                     li{(t)}
                 }
             }
-            br;
         }
-    }
-}
-
-pub fn cv() -> Markup {
-    let cv_file = match read_to_string(Path::new("src/cv.json")) {
-        Err(why) => {
-            panic!("somethings junked: {}", why.description());
-        }
-        Ok(file) => file,
     };
-    let cv_items: Vec<CVItem> = match serde_json::from_str(cv_file.as_str()) {
-        Err(why) => panic!("what the what: {}", why.description()),
-        Ok(r) => r,
-    };
-
-    html! {
-        div id="container"{
-            h1{"Resume"}
-            (cv_to_html(cv_items))
-        }
-    }
+    Ok(cv_html)
 }
