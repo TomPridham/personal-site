@@ -10,6 +10,7 @@ mod cv;
 mod head;
 mod header;
 mod home;
+mod projects;
 use about::about;
 use cv::cv;
 use head::head;
@@ -17,6 +18,7 @@ use header::{header_html, header_script};
 use home::home;
 use maud::{html, Markup, DOCTYPE};
 use minifier::css::minify;
+use projects::projects;
 use std::error::Error;
 use std::fs::{read_to_string, DirBuilder, File};
 use std::io::prelude::*;
@@ -53,6 +55,12 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
     DirBuilder::new().recursive(true).create(cv_path)?;
     let mut file = File::create(cv_path.join(&path))?;
     let markup = generate_markup(cv()?, cv_path.to_str().unwrap());
+    file.write_all(&markup.into_string().as_bytes())?;
+
+    let p_path = Path::new("projects");
+    DirBuilder::new().recursive(true).create(p_path)?;
+    let mut file = File::create(p_path.join(&path))?;
+    let markup = generate_markup(projects(), p_path.to_str().unwrap());
     file.write_all(&markup.into_string().as_bytes())?;
     Ok(())
 }
