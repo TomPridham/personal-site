@@ -25,16 +25,16 @@ pub fn header_html() -> Markup {
             span id="home"{"tompridham.me"}
             ul id="menu" {
                 li{
-                    a id="cv" to="/cv"{"cv"}
+                    a id="cv" href="cv"{"cv"}
                 }
                 li{
-                    a id="about" to="/about"{"about"}
+                    a id="about" href="about"{"about"}
                 }
                 li{
-                    a id="projects" to="/projects"{"projects"}
+                    a id="projects" href="projects"{"projects"}
                 }
                 li{
-                    a to="https://github.com/tompridham"{"github"}
+                    a href="https://github.com/tompridham"{"github"}
                 }
             }
         }

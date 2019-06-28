@@ -11,7 +11,7 @@ pub fn head() -> Markup {
             meta name="description" content="portfolio site for tom pridham. he likes being good at things.";
             title { "tompridham.me "}
             link rel="shortcut icon" href="favicon.ico" type="image/x-icon";
-            link rel="stylesheet" href="app.css";
+            link rel="stylesheet" href="/app.css";
         }
     }
 }

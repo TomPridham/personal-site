@@ -28,7 +28,9 @@ fn generate_markup(html: Markup, path: &str) -> Markup {
         (head())
         body {
             (header_html())
-            (html)
+            div id="container"{
+                (html)
+            }
             (header_script(path))
         }
     }
