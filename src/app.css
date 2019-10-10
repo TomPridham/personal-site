@@ -45,3 +45,8 @@ a {
 .active-header {
   border-bottom: 1px solid;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+}

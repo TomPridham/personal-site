@@ -1,90 +1,136 @@
-[
-  {
-    "company": "jane",
-    "duties": [
-      "participate in code review",
-      "create new features based off of designs and product specifications",
-      "assist coworkers with difficult tasks"
-    ],
-    "notable_achievements": [
-      "completed a large feature that enabled our sellers to manage their employees",
-      "implemented a bunch of performance improvements to our customer facing site that cut load times in half",
-      "successfully pushed for the inclusion of a type library in all new js projects and incremental adoption in existing projects"
-    ],
-    "technologies": [
-      "angularjs",
-      "c#",
-      "flow",
-      "graphql",
-      "koa",
-      "node",
-      "react",
-      "redux"
-    ],
-    "time": "october 2017 - present",
-    "title": "software engineer"
-  },
-  {
-    "company": "sundance institute",
-    "duties": [
-      "work with stakeholders to implement their vision on our site",
-      "assist other departments with keeping their pages up to date and pretty",
-      "create standalone internal applications to enable other departments to work more efficiently"
-    ],
-    "notable_achievements": [
-      "rewrote an angularjs frontend app used to manage press applicants in angular",
-      "wrote a backing node service that handled caching and interacting with a postgres database"
-    ],
-    "technologies": [
-      "angular",
-      "express",
-      "mongo",
-      "node",
-      "postgres",
-      "redis",
-      "typescript"
-    ],
-    "time": "february 2017 - october 2017",
-    "title": "web developer"
-  },
-  {
-    "company": "perkcity",
-    "duties": [
-      "work on angularjs and ionic app to get ready for publishing in the app and play stores",
-      "implement designs and work with the team to solve problems and implement new features",
-      "manage deployments of node service and new app versions in app and play stores"
-    ],
-    "notable_achievements": [
-      "finished mvp angularjs and ionic app that was published in the app and play stores",
-      "finished the node service that powered the app using express and mysql",
-      "implemented security improvements in the node service",
-      "modularized the frontend code and implemented a better build process"
-    ],
-    "technologies": ["angularjs", "express", "ionic", "mysql", "node"],
-    "time": "october 2016 - october 2017",
-    "title": "web developer"
-  },
-  {
-    "company": "devmountain",
-    "duties": [
-      "assist students with projects and lessons",
-      "explain tough concepts and improve student's understanding",
-      "work on internal applications"
-    ],
-    "notable_achievements": [
-      "implemented an internal app that did a thing",
-      "helped students do things and understand errors",
-      "taught a couple classes"
-    ],
-    "technologies": [
-      "angularjs",
-      "express",
-      "mongo",
-      "node",
-      "postgres",
-      "react"
-    ],
-    "time": "october 2016 - october 2017",
-    "title": "student mentor"
-  }
-]
+{
+  "projects": [
+    {
+      "description": "project with other mentors at devmountain that is used to automate google calendar scheduling. implemented a react with redux front-end with a node and postgres backend.",
+      "technologies": [
+        "react",
+        "redux",
+        "webpack",
+        "node",
+        "express",
+        "postgres",
+        "passport",
+        "google calendar api"
+      ],
+      "title": "devmountain scheduler"
+    },
+    {
+      "description": "an app that uses data scraped from mtbproject.com to recommend random mountain bike trails. implemented a fully-functional webscraper to pull trail data from mtbproject.com.",
+      "technologies": [
+        "webscraping",
+        "text-parsing",
+        "angular material",
+        "mongo",
+        "angularjs",
+        "express",
+        "node"
+      ],
+      "title": "routefor.me"
+    },
+    {
+      "description": "group project that was designed to assist in selecting plants based on use with data pulled from pfaf.org. utilized the node fs module to process over 7000 entries for our database. simplified and reorganized front-end querying code to remove over 250 lines and reduce client-side latency.",
+      "technologies": [
+        "text-parsing",
+        "skeleton",
+        "passport",
+        "gulp",
+        "sass",
+        "mongo",
+        "angularjs",
+        "express",
+        "node"
+      ],
+      "title": "plantsfor.life"
+    }
+  ],
+  "work": [
+    {
+      "company": "jane",
+      "duties": [
+        "participate in code review",
+        "create new features based off of designs and product specifications",
+        "assist coworkers with difficult tasks"
+      ],
+      "notable_achievements": [
+        "completed a large feature that enabled our sellers to manage their employees",
+        "implemented a bunch of performance improvements to our customer facing site that cut load times in half",
+        "successfully pushed for the inclusion of a type library in all new js projects and incremental adoption in existing projects"
+      ],
+      "technologies": [
+        "angularjs",
+        "c#",
+        "flow",
+        "graphql",
+        "koa",
+        "node",
+        "react",
+        "redux"
+      ],
+      "time": "october 2017 - present",
+      "title": "software engineer"
+    },
+    {
+      "company": "sundance institute",
+      "duties": [
+        "work with stakeholders to implement their vision on our site",
+        "assist other departments with keeping their pages up to date and pretty",
+        "create standalone internal applications to enable other departments to work more efficiently"
+      ],
+      "notable_achievements": [
+        "rewrote an angularjs frontend app used to manage press applicants in angular",
+        "wrote a backing node service that handled caching and interacting with a postgres database"
+      ],
+      "technologies": [
+        "angular",
+        "express",
+        "mongo",
+        "node",
+        "postgres",
+        "redis",
+        "typescript"
+      ],
+      "time": "february 2017 - october 2017",
+      "title": "web developer"
+    },
+    {
+      "company": "perkcity",
+      "duties": [
+        "work on angularjs and ionic app to get ready for publishing in the app and play stores",
+        "implement designs and work with the team to solve problems and implement new features",
+        "manage deployments of node service and new app versions in app and play stores"
+      ],
+      "notable_achievements": [
+        "finished mvp angularjs and ionic app that was published in the app and play stores",
+        "finished the node service that powered the app using express and mysql",
+        "implemented security improvements in the node service",
+        "modularized the frontend code and implemented a better build process"
+      ],
+      "technologies": ["angularjs", "express", "ionic", "mysql", "node"],
+      "time": "october 2016 - october 2017",
+      "title": "web developer"
+    },
+    {
+      "company": "devmountain",
+      "duties": [
+        "assist students with projects and lessons",
+        "explain tough concepts and improve student's understanding",
+        "work on internal applications"
+      ],
+      "notable_achievements": [
+        "implemented an internal app that did a thing",
+        "helped students do things and understand errors",
+        "taught a couple classes"
+      ],
+      "technologies": [
+        "angularjs",
+        "express",
+        "mongo",
+        "node",
+        "postgres",
+        "react"
+      ],
+      "time": "october 2016 - october 2017",
+      "title": "student mentor"
+    }
+  ]
+}
