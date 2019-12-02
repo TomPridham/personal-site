@@ -15,8 +15,15 @@ a {
   text-decoration: none;
   color: black;
 }
+
 a:hover {
   color: gray;
+}
+
+div.code {
+  background: lightgray;
+  border-radius: 3px;
+  padding: 3px;
 }
 
 .space-between {
@@ -26,6 +33,7 @@ a:hover {
 
 #container{
   padding: 0 20px 20px;
+  max-width: 1040px;
 }
 
 #header {
