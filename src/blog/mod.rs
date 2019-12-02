@@ -6,27 +6,10 @@ pub mod svg_vs_icon_font;
 
 pub fn blog() -> Result<Markup, Box<dyn Error>> {
     let cv_html = html! {
-        div.row{
-            h1{"tom pridham"}
-            h2{"contact"}
-            ul{
-                li{"email: pridham.tom@gmail.com"}
-                li{"phone: 702-285-7906"}
-                li{"website: tompridham.github.io"}
-                li{"github: github.com/tompridham"}
-            }
-        }
-        div.row{
-            h2{"skills"}
-            ul{
-                li{"react"}
-                li{"graphql"}
-                li{"rust"}
-                li{"typescript"}
-                li{"angularjs"}
-                li{"node"}
-                li{"postgres"}
-            }
+        h2{"things i've written"}
+        div.col{
+            a href="/why_is_rust_so_fast"{"why is rust so fast"}
+            a href="/svg_vs_icon_font"{"svgs vs icon font"}
         }
     };
     Ok(cv_html)

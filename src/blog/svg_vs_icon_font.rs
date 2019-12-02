@@ -13,14 +13,17 @@ pub fn svg_vs_icon_font() -> Result<Markup, Box<dyn std::error::Error>> {
         p{
             "two of the most common methods we saw were either using the svgs as the src in `img` tags or inlining the svg itself. using the svgs in `img` tags is an easy solution that really only requires the svgs be hosted somewhere to work most of the way. you end up having to do a lot of gross css workarounds that aren't supported everywhere and have differing implementations between browsers, however. "
         }
-        code{
-            "
-                const colorMap = {
-                    blue: 'filter: invert(39%) sepia(88%) saturate(1890%) hue-rotate(165deg) brightness(101%) contrast(101%)'
-                }
-                const Icon = ({name, height, color}) =>
-                  <img src={`https://myHostingService.com/${name}`} style={{height, filter: colorMap[color]}}/>
+        pre{
+
+            code{
                 "
+const colorMap = {
+  blue: 'filter: invert(39%) sepia(88%) saturate(1890%) hue-rotate(165deg) brightness(101%) contrast(101%)'
+  }
+const Icon = ({name, height, color}) =>
+  <img src={`https://myHostingService.com/${name}`} style={{height, filter: colorMap[color]}}/>
+"
+            }
         }
         p{
             "this method allows for the pros of having your svgs be cached by the browser and allowing for adding arbitrary svg icons just by adding the svg file to the hosting location. it has the rather significant downside of requiring the images to be styled using the `filter` css attribute above. there are formulas(see https://codepen.io/sosuke/pen/Pjoqqp) that can convert a hex value to the filter, but some colors just don't work. it also requires interacting with the svgs like images instead of as native `svg` elements. we rejected this method for those reasons."
@@ -36,25 +39,29 @@ pub fn svg_vs_icon_font() -> Result<Markup, Box<dyn std::error::Error>> {
         p{
             "we came up with a third method that is a little more complicated, but that brings all the benefits of both approaches with none of the downsides. you can fetch the svgs as images and then insert them into the DOM using `innerHtml` and then reference them with `use` tags. this allows for caching the responses, styling the svgs using normal svg selectors, only fetching required icons once."
         }
-        code{
-            "
-                const Icon = ({name}) => {
-                    if(!document.querySelector(`#${name}`)){
-                        window.fetch(`https://myHostingService/${name}.svg`).then(res => {
-                          if (res.ok) {
-                            res.text().then(svg => {
-                              const el = document.createElement('div')
-                              el.innerHTML = svg
-                              el.firstChild.id = icon
-                              document.querySelector('#icon-container').appendChild(el)
-                            });
-                          }
-                        })
-                      })
-                    }
-                    return <svg><use href={`#${name}`} /></svg>
-                }
+        pre{
+
+            code{
                 "
+const Icon = ({name}) => {
+  if (!document.querySelector(`#${name}`)) {
+    window.fetch(`https://myHostingService/${name}.svg`)
+      .then(res => {
+        if (res.ok) {
+          res.text().then(svg => {
+            const el = document.createElement('div')
+            el.innerHTML = svg
+            el.firstChild.id = icon
+            document.querySelector('#icon-container').appendChild(el)
+          })
+        }
+      })
+    }
+  }
+  return <svg><use href={`#${name}`} /></svg>
+}
+                    "
+            }
         }
     };
     Ok(h)

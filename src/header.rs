@@ -32,8 +32,11 @@ pub fn header_html() -> Markup {
                     a id="about" href="/about"{"about"}
                 }
                 li{
-                    a id="projects" href="/projects"{"projects"}
+                    a id="blog" href="/blog"{"blog"}
                 }
+                //li{
+                    //a id="projects" href="/projects"{"projects"}
+                //}
                 li{
                     a href="https://github.com/tompridham"{"github"}
                 }

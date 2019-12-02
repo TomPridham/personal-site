@@ -7,7 +7,7 @@ use std::fs::read_to_string;
 use std::path::Path;
 
 #[derive(Debug, Serialize, Deserialize)]
-struct Job{
+struct Job {
     company: String,
     duties: Vec<String>,
     notable_achievements: Vec<String>,
@@ -17,25 +17,25 @@ struct Job{
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-struct Project{
+struct Project {
     description: String,
     technologies: Vec<String>,
-    title:String
+    title: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-struct CV{
+struct CV {
     projects: Vec<Project>,
-    work: Vec<Job>
+    work: Vec<Job>,
 }
 
 pub fn cv() -> Result<Markup, Box<dyn Error>> {
     let cv_file = read_to_string(Path::new("src/cv.json"))?;
-    let cv_items:CV = serde_json::from_str(cv_file.as_str())?;
+    let cv_items: CV = serde_json::from_str(cv_file.as_str())?;
 
     let cv_html = html! {
+        h1{"tom pridham"}
         div.row{
-            h1{"tom pridham"}
             h2{"contact"}
             ul{
                 li{"email: pridham.tom@gmail.com"}

@@ -12,7 +12,7 @@ pub fn home() -> Markup {
             ul{
                 li{"email: pridham.tom@gmail.com"}
                 li{"phone: 702-285-7906"}
-                li{"github: " a{"github.com/tompridham"}}
+                li{"github: " a href="https://github.com/tompridham"{"github.com/tompridham"}}
             }
         }
     }
