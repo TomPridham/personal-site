@@ -11,7 +11,7 @@ if(active){
   active.classList.remove('active-header');
 }
 document
-  .getElementById('"(location)"')
+  .getElementById('"(location)"'.split('/')[0])
   .classList
   .add('active-header')"
         }
@@ -36,7 +36,7 @@ pub fn header_html() -> Markup {
                 }
                 //li{
                     //a id="projects" href="/projects"{"projects"}
-                //}
+                //}:
                 li{
                     a href="https://github.com/tompridham"{"github"}
                 }

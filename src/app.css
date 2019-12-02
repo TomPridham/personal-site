@@ -15,6 +15,9 @@ a {
   text-decoration: none;
   color: black;
 }
+a:hover {
+  color: gray;
+}
 
 .space-between {
   display: flex;
@@ -49,4 +52,9 @@ a {
 .row {
   display: flex;
   flex-direction: row;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
 }
