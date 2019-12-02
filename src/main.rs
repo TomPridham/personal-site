@@ -6,12 +6,14 @@ extern crate serde;
 extern crate serde_json;
 
 mod about;
+mod blog;
 mod cv;
 mod head;
 mod header;
 mod home;
 mod projects;
 use about::about;
+use blog::{blog, svg_vs_icon_font::svg_vs_icon_font};
 use cv::cv;
 use head::head;
 use header::{header_html, header_script};
@@ -45,24 +47,25 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
     let markup = generate_markup(home(), "home");
     file.write_all(&markup.into_string().as_bytes())?;
 
-    let a_path = Path::new("about");
-    DirBuilder::new().recursive(true).create(a_path)?;
-    let mut file = File::create(a_path.join(&path))?;
-    let markup = generate_markup(about(), a_path.to_str().unwrap());
-    file.write_all(&markup.into_string().as_bytes())?;
+    let html_files: Vec<(
+        fn() -> Result<maud::PreEscaped<String>, Box<dyn Error>>,
+        &str,
+    )> = vec![
+        (about, "about"),
+        (blog, "blog"),
+        (cv, "cv"),
+        (projects, "projects"),
+        (svg_vs_icon_font, "blog/svg_vs_icon_font"),
+    ];
 
-    let cv_path = Path::new("cv");
-    DirBuilder::new().recursive(true).create(cv_path)?;
-    let mut file = File::create(cv_path.join(&path))?;
-    let markup = generate_markup(cv()?, cv_path.to_str().unwrap());
-    file.write_all(&markup.into_string().as_bytes())?;
-
-    let p_path = Path::new("projects");
-    DirBuilder::new().recursive(true).create(p_path)?;
-    let mut file = File::create(p_path.join(&path))?;
-    let markup = generate_markup(projects(), p_path.to_str().unwrap());
-    file.write_all(&markup.into_string().as_bytes())?;
-    Ok(())
+    html_files.iter().try_for_each(|(fun, name)| {
+        let p = Path::new(name);
+        DirBuilder::new().recursive(true).create(p)?;
+        let mut file = File::create(p.join(&path))?;
+        let markup = generate_markup(fun()?, p.to_str().ok_or("")?);
+        file.write_all(&markup.into_string().as_bytes())?;
+        Ok::<(), Box<dyn Error>>(())
+    })
 }
 
 fn generate_css_file() -> Result<(), Box<dyn Error>> {
