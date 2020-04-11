@@ -61,11 +61,14 @@ const Icon = ({name}) => {
       })
     }
   }
-  return <svg><use href={`#${name}`} /></svg>
+  return <svg><use href={`#${name}`} xlinkHref={`#${name}`} /></svg>
 }
                     "
                 }
             }
+        }
+        p{
+            the only caveat that we have found so far was that ios didn't start supporting the `href` attribute on `<svg>` tags until about july 2019. the workaround for this is adding that `xlinkHref` attribute to the svg. while deprecated, it is necessary for this to be a feasible solution and won't cause any harm in more modern browsers.
         }
     };
     Ok(h)

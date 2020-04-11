@@ -45,11 +45,32 @@
   ],
   "work": [
     {
+      "company": "pdq.com",
+      "duties": [
+        "implement standards and best practices for js guild",
+        "work with other developers to deliver projects on time",
+        "optimize site for speed and increase seo"
+      ],
+      "notable_achievements": [
+        "removed a ~7mb json blob that was being included in our bundle by an erroneous graphql query",
+        "moved our marketing site to a modern pipeline and deployment environment using k8s"
+      ],
+      "technologies": [
+        "gatsby",
+        "react",
+        "typescript",
+        "react",
+        "k8s"
+      ],
+      "time": "january 2020 - present",
+      "title": "software engineer"
+    },
+    {
       "company": "jane",
       "duties": [
-        "participate in code review",
+        "perform rigorous code review and uplift other engineers",
         "create new features based off of designs and product specifications",
-        "assist coworkers with difficult tasks"
+        "solve difficult problems, simplify code, delete things"
       ],
       "notable_achievements": [
         "completed a large feature that enabled our sellers to manage their employees",
@@ -66,7 +87,7 @@
         "react",
         "redux"
       ],
-      "time": "october 2017 - present",
+      "time": "october 2017 - decemember 2019",
       "title": "software engineer"
     },
     {
@@ -117,9 +138,8 @@
         "work on internal applications"
       ],
       "notable_achievements": [
-        "implemented an internal app that did a thing",
-        "helped students do things and understand errors",
-        "taught a couple classes"
+        "implemented an internal app that helped instructors manage curriculum",
+        "helped students implement their vision and understand errors"
       ],
       "technologies": [
         "angularjs",
