@@ -22,9 +22,9 @@ const Icon = ({name}) =&gt; {
       })
     }
   }
-  return &lt;svg&gt;&lt;use href={`#${name}`} /&gt;&lt;/svg&gt;
+  return &lt;svg&gt;&lt;use href={`#${name}`} xlinkHref={`#${name}`} /&gt;&lt;/svg&gt;
 }
-                    </code></div></pre></div><script type="text/javascript">
+                    </code></div></pre><p>the only caveat that we have found so far was that ios didn't start supporting the `href` attribute on `&lt;svg&gt;` tags until about july 2019. the workaround for this is adding that `xlinkHref` attribute to the svg. while deprecated, it is necessary for this to be a feasible solution and won't cause any harm in more modern browsers.</p></div><script type="text/javascript">
 const active = document
   .querySelector('.active-header');
 if(active){
