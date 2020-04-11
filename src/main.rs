@@ -41,9 +41,11 @@ fn generate_markup(html: Markup, path: &str) -> Markup {
 }
 
 fn generate_html_files() -> Result<(), Box<dyn Error>> {
+    let dist = Path::new("dist");
     let path = Path::new("index.html");
+    DirBuilder::new().recursive(true).create(dist)?;
 
-    let mut file = File::create(&path)?;
+    let mut file = File::create(&dist.join(path))?;
     let markup = generate_markup(home(), "home");
     file.write_all(&markup.into_string().as_bytes())?;
 
@@ -51,11 +53,11 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
         fn() -> Result<maud::PreEscaped<String>, Box<dyn Error>>,
         &str,
     )> = vec![
-        (about, "about"),
-        (blog, "blog"),
-        (cv, "cv"),
-        (projects, "projects"),
-        (svg_vs_icon_font, "blog/svg_vs_icon_font"),
+        (about, "dist/about"),
+        (blog, "dist/blog"),
+        (cv, "dist/cv"),
+        (projects, "dist/projects"),
+        (svg_vs_icon_font, "dist/blog/svg_vs_icon_font"),
     ];
 
     html_files.iter().try_for_each(|(fun, name)| {
@@ -63,6 +65,7 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
         DirBuilder::new().recursive(true).create(p)?;
         let mut file = File::create(p.join(&path))?;
         let markup = generate_markup(fun()?, p.to_str().ok_or("")?);
+
         file.write_all(&markup.into_string().as_bytes())?;
         Ok::<(), Box<dyn Error>>(())
     })
@@ -71,7 +74,7 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
 fn generate_css_file() -> Result<(), Box<dyn Error>> {
     let css = read_to_string(Path::new("src/app.css"))?;
     let minified_css = minify(css.as_str())?;
-    let mut file = File::create(Path::new("app.css"))?;
+    let mut file = File::create(Path::new("dist/app.css"))?;
     file.write_all(&minified_css.as_bytes())?;
     Ok(())
 }

@@ -1,4 +1,4 @@
-name: Rust
+name: Deploy
 
 on:
   push:
@@ -11,17 +11,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Bump version and push tag
       uses: anothrNick/github-tag-action@1.17.2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
-    - name: Checkout GH-Pages branch
-      uses: actions/checkout@v2
-      with:
-        ref: gh-pages
-    - run: git pull origin master
+
     - name: Build site
       run: cargo run
-    - run: git add .
-    - run: git commit -m 'build'
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./dist
