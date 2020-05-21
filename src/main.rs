@@ -26,6 +26,9 @@ use std::fs::{read_to_string, DirBuilder, File};
 use std::io::prelude::*;
 use std::path::Path;
 
+type HtmlResult = Result<maud::PreEscaped<String>, Box<dyn Error>>;
+type HtmlFunctionAndPath = (fn() -> HtmlResult, &'static str);
+
 fn generate_markup(html: Markup, path: &str) -> Markup {
     html! {
         (DOCTYPE)
@@ -49,10 +52,7 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
     let markup = generate_markup(home(), "home");
     file.write_all(&markup.into_string().as_bytes())?;
 
-    let html_files: Vec<(
-        fn() -> Result<maud::PreEscaped<String>, Box<dyn Error>>,
-        &str,
-    )> = vec![
+    let html_files: Vec<HtmlFunctionAndPath> = vec![
         (about, "dist/about"),
         (blog, "dist/blog"),
         (cv, "dist/cv"),
@@ -83,14 +83,14 @@ fn main() {
     match generate_html_files() {
         Err(why) => panic!(
             "something went wrong generating the html files: {}",
-            why.description()
+            why.to_string()
         ),
         Ok(_) => println!("html files generated"),
     }
     match generate_css_file() {
         Err(why) => panic!(
             "something went wrong generating the css file: {}",
-            why.description()
+            why.to_string()
         ),
         Ok(_) => println!("css file generated"),
     }

@@ -1,7 +1,6 @@
 extern crate maud;
 use maud::{html, Markup};
 use serde::{Deserialize, Serialize};
-use serde_json;
 use std::error::Error;
 use std::fs::read_to_string;
 use std::path::Path;
