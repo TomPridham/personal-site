@@ -13,7 +13,7 @@ mod header;
 mod home;
 mod projects;
 use about::about;
-use blog::{blog, svg_vs_icon_font::svg_vs_icon_font};
+use blog::{blog, svg_vs_icon_font, why_is_rust_so_fast};
 use cv::cv;
 use head::head;
 use header::{header_html, header_script};
@@ -58,6 +58,7 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
         (cv, "dist/cv"),
         (projects, "dist/projects"),
         (svg_vs_icon_font, "dist/blog/svg_vs_icon_font"),
+        (why_is_rust_so_fast, "dist/blog/why_is_rust_so_fast"),
     ];
 
     html_files.iter().try_for_each(|(fun, name)| {

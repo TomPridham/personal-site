@@ -1,10 +1,9 @@
 extern crate maud;
 
-use maud::{html,Markup};
+use maud::{html, Markup};
 
-pub fn why_is_rust_so_fast() -> Result<Markup, Box<dyn std::error::Error>{
-
-    let h = html!{
+pub fn why_is_rust_so_fast() -> Result<Markup, Box<dyn std::error::Error>> {
+    let h = html! {
         script src="https://remarkjs.com/downloads/remark-latest.min.js"{}
         script src="https://cdn.plot.ly/plotly-latest.min.js"{}
         textarea id="source"{
@@ -97,7 +96,6 @@ name:hey
       Plotly.newPlot('slide-hey', data2, layout2);
                 "
         }
-    </script>
-    }
+    };
     Ok(h)
 }
