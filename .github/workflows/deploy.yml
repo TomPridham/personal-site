@@ -19,7 +19,9 @@ jobs:
         WITH_V: true
 
     - name: Build site
-      run: cargo run
+      run: |
+        cargo run
+        cp CNAME dist/CNAME
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
