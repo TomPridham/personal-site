@@ -47,16 +47,19 @@
     {
       "company": "pdq.com",
       "duties": [
-        "implement standards and best practices for js guild",
-        "work with other developers to deliver projects on time",
+        "implement standards and best practices for js guild and js repos across the org",
+        "mentor other developers to ensure code quality and performance",
         "optimize site for speed and increase seo"
       ],
       "notable_achievements": [
-        "removed a ~7mb json blob that was being included in our bundle by an erroneous graphql query",
-        "moved our marketing site to a modern pipeline and deployment environment using k8s"
+        "utilized web workers to implement a/b testing for our marketing and sales sites",
+        "moved our marketing site to a modern pipeline and deployment environment using k8s",
+        "removed a ~7mb json blob that was being included in our bundle by an erroneous graphql query"
       ],
       "technologies": [
         "gatsby",
+        "next",
+        "web workers",
         "react",
         "typescript",
         "react",
