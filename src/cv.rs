@@ -30,7 +30,7 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
 
     let cv_html = html! {
         h1{"tom pridham"}
-        div.row{
+        div{
             h2{"contact"}
             ul{
                 li{"email: pridham.tom@gmail.com"}
@@ -39,7 +39,7 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
                 li{"github: github.com/tompridham"}
             }
         }
-        div.row{
+        div{
             h2{"skills"}
             ul{
                 li{"react"}
@@ -51,7 +51,7 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
                 li{"postgres"}
             }
         }
-        div.row{
+        div{
             h2{"job history"}
             div{
                 @for cv_item in cv_items {
@@ -78,7 +78,7 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
                 }
             }
         }
-        div.row{
+        div{
             h2{"projects"}
             div{
                 @for project in projects{
@@ -92,7 +92,7 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
                 }
             }
         }
-        div.row{
+        div{
             h2{"education"}
             div{
                 h3{"devmoutain - May 2016"}
