@@ -5,15 +5,16 @@ pub fn header_script(location: &str) -> Markup {
     html! {
         script type="text/javascript"{
 "
-const active = document
-  .querySelector('.active-header');
-if(active){
-  active.classList.remove('active-header');
-}
-document
-  .getElementById('"(location)"'.split('/')[0])
-  .classList
-  .add('active-header')"
+    const active = document
+      .querySelector('.active-header');
+    if(active){
+      active.classList.remove('active-header');
+    }
+    document
+      .getElementById('"(location)"'.split('/')[0])
+      .classList
+      .add('active-header')
+"
         }
     }
 }
@@ -34,9 +35,9 @@ pub fn header_html() -> Markup {
                 li{
                     a id="blog" href="/blog"{"blog"}
                 }
-                //li{
-                    //a id="projects" href="/projects"{"projects"}
-                //}:
+                li{
+                    a id="projects" href="/projects"{"projects"}
+                }
                 li{
                     a href="https://github.com/tompridham"{"github"}
                 }

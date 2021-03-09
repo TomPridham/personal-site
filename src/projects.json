@@ -1,6 +1,15 @@
 [
   {
+    "demo_url":"",
+    "description": "a picture replication program that works by randomly placing emoji on a blank canvas and comparing that to the original picture. if the new picture is closer than the old picture is, it keeps that image and repeats the process.",
+    "extended_description": "an old boss of mine found a site that had a person's project called brutemoji that did what my library does but in javascript. i really liked their project and used it to create a few fun images. i haven't been able to find that same site again, so i thought i would recreate it in rust. i like the final product better than other more intelligent emoji image replicators because the final image is much more chaotic and ultimately more interesting.",
+    "picture_urls": [""],
+    "technologies": ["rust", "image manipulation"],
+    "title": "brutemoji"
+  },
+  {
     "description": "project with other mentors at devmountain that is used to automate google calendar scheduling. implemented a react with redux front-end with a node and postgres backend.",
+    "extended_description": "",
     "technologies": [
       "react",
       "redux",
@@ -15,6 +24,7 @@
   },
   {
     "description": "an app that uses data scraped from mtbproject.com to recommend random mountain bike trails. implemented a fully-functional webscraper to pull trail data from mtbproject.com.",
+    "extended_description": "",
     "technologies": [
       "webscraping",
       "text-parsing",
@@ -28,6 +38,7 @@
   },
   {
     "description": "group project that was designed to assist in selecting plants based on use with data pulled from pfaf.org. utilized the node fs module to process over 7000 entries for our database. simplified and reorganized front-end querying code to remove over 250 lines and reduce client-side latency.",
+    "extended_description": "",
     "technologies": [
       "text-parsing",
       "skeleton",
