@@ -1,0 +1,44 @@
+[
+  {
+    "description": "project with other mentors at devmountain that is used to automate google calendar scheduling. implemented a react with redux front-end with a node and postgres backend.",
+    "technologies": [
+      "react",
+      "redux",
+      "webpack",
+      "node",
+      "express",
+      "postgres",
+      "passport",
+      "google calendar api"
+    ],
+    "title": "devmountain scheduler"
+  },
+  {
+    "description": "an app that uses data scraped from mtbproject.com to recommend random mountain bike trails. implemented a fully-functional webscraper to pull trail data from mtbproject.com.",
+    "technologies": [
+      "webscraping",
+      "text-parsing",
+      "angular material",
+      "mongo",
+      "angularjs",
+      "express",
+      "node"
+    ],
+    "title": "routefor.me"
+  },
+  {
+    "description": "group project that was designed to assist in selecting plants based on use with data pulled from pfaf.org. utilized the node fs module to process over 7000 entries for our database. simplified and reorganized front-end querying code to remove over 250 lines and reduce client-side latency.",
+    "technologies": [
+      "text-parsing",
+      "skeleton",
+      "passport",
+      "gulp",
+      "sass",
+      "mongo",
+      "angularjs",
+      "express",
+      "node"
+    ],
+    "title": "plantsfor.life"
+  }
+]

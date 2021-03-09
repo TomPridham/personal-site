@@ -22,15 +22,11 @@ struct Project {
     title: String,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
-struct CV {
-    projects: Vec<Project>,
-    work: Vec<Job>,
-}
-
 pub fn cv() -> Result<Markup, Box<dyn Error>> {
     let cv_file = read_to_string(Path::new("src/cv.json"))?;
-    let cv_items: CV = serde_json::from_str(cv_file.as_str())?;
+    let cv_items: Vec<Job> = serde_json::from_str(cv_file.as_str())?;
+    let projects_file = read_to_string(Path::new("src/projects.json"))?;
+    let projects: Vec<Project> = serde_json::from_str(projects_file.as_str())?;
 
     let cv_html = html! {
         h1{"tom pridham"}
@@ -58,7 +54,7 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
         div.row{
             h2{"job history"}
             div{
-                @for cv_item in cv_items.work {
+                @for cv_item in cv_items {
                     h3{(cv_item.company ) " - " (cv_item.time)}
                     p{(cv_item.title)}
                     h4{"duties"}
@@ -85,7 +81,7 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
         div.row{
             h2{"projects"}
             div{
-                @for project in cv_items.projects{
+                @for project in projects{
                     h3{(project.title)}
                     p{(project.description)}
                     ul{
