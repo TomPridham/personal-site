@@ -12,7 +12,7 @@ pub fn about() -> Result<Markup, Box<dyn Error>> {
             "after i got my associates, i attended devmountain(a web dev bootcamp in provo, ut) where i primarily learned angular. i then freelanced for a couple months, mentored a class at devmountain(teaching react), mentored an after hours class at devmountain. i got my first software development job at sundance and haven't looked back."
         }
         p{
-            "currently, i live in millcreek with my wife and three dogs. i spend most of my time playing around with rust, doing yardwork, playing video games, or woodworking. pre pandemic, i used to be really into climbing and mountain biking."
+            "currently, i live in millcreek with my wife and three dogs. i spend most of my time playing around with rust, doing yardwork, playing video games, or woodworking. i enjoy mountain biking and snowboarding. pre pandemic, i used to be really into climbing."
         }
     };
     Ok(a)

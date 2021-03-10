@@ -35,7 +35,7 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
             ul{
                 li{"email: pridham.tom@gmail.com"}
                 li{"phone: 702-285-7906"}
-                li{"website: tompridham.github.io"}
+                li{"website: tompridham.me"}
                 li{"github: github.com/tompridham"}
             }
         }

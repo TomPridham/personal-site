@@ -53,19 +53,20 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
     file.write_all(&markup.into_string().as_bytes())?;
 
     let html_files: Vec<HtmlFunctionAndPath> = vec![
-        (about, "dist/about"),
-        (blog, "dist/blog"),
-        (cv, "dist/cv"),
-        (projects, "dist/projects"),
-        (svg_vs_icon_font, "dist/blog/svg_vs_icon_font"),
-        (why_is_rust_so_fast, "dist/blog/why_is_rust_so_fast"),
+        (about, "about"),
+        (blog, "blog"),
+        (cv, "cv"),
+        (projects, "projects"),
+        (svg_vs_icon_font, "blog/svg_vs_icon_font"),
+        (why_is_rust_so_fast, "blog/why_is_rust_so_fast"),
     ];
 
     html_files.iter().try_for_each(|(fun, name)| {
-        let p = Path::new(name);
+        let p = format!("dist/{}", name);
+        let p = Path::new(&p);
         DirBuilder::new().recursive(true).create(p)?;
         let mut file = File::create(p.join(&path))?;
-        let markup = generate_markup(fun()?, p.to_str().ok_or("")?);
+        let markup = generate_markup(fun()?, name);
 
         file.write_all(&markup.into_string().as_bytes())?;
         Ok::<(), Box<dyn Error>>(())

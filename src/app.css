@@ -1,6 +1,6 @@
 html {
-    margin-right: calc(100vw - 100%);
-    margin-left: 0;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
@@ -50,11 +50,11 @@ div.code {
 #menu li {
   width: 100%;
   padding: 0 8px;
-  border-bottom: 1px solid transparent;
+  border-bottom: 3px solid transparent;
 }
 
 .active-header {
-  border-bottom: 1px solid;
+  border-bottom: 3px solid black;
 }
 
 .row {
