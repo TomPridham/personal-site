@@ -30,7 +30,7 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
 
     let cv_html = html! {
         h1{"tom pridham"}
-        div{
+        div.bottom-spacer{
             h2{"contact"}
             ul{
                 li{"email: pridham.tom@gmail.com"}
@@ -39,54 +39,58 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
                 li{"github: github.com/tompridham"}
             }
         }
-        div{
+        div.bottom-spacer{
             h2{"skills"}
             ul{
                 li{"react"}
-                li{"graphql"}
                 li{"rust"}
-                li{"typescript"}
-                li{"angularjs"}
                 li{"node"}
+                li{"typescript"}
+                li{"graphql"}
+                li{"angularjs"}
                 li{"postgres"}
             }
         }
-        div{
+        div.bottom-spacer{
             h2{"job history"}
             div{
                 @for cv_item in cv_items {
-                    h3{(cv_item.company ) " - " (cv_item.time)}
-                    p{(cv_item.title)}
-                    h4{"duties"}
-                    ul{
-                        @for duty in cv_item.duties{
-                            li{(duty)}
+                    div.bottom-spacer.hr{
+                        h3{(cv_item.company ) " | " (cv_item.time) " | " (cv_item.title)}
+                        h4{"duties"}
+                        ul{
+                            @for duty in cv_item.duties{
+                                li{(duty)}
+                            }
                         }
-                    }
-                    h4{"notable achievements"}
-                    ul{
-                        @for n in cv_item.notable_achievements{
-                            li{(n)}
+                        h4{"notable achievements"}
+                        ul{
+                            @for n in cv_item.notable_achievements{
+                                li{(n)}
+                            }
                         }
-                    }
-                    h4{"technologies used"}
-                    ul{
-                        @for t in cv_item.technologies{
-                            li{(t)}
+                        h4{"technologies used"}
+                        ul{
+                            @for t in cv_item.technologies{
+                                li{(t)}
+                            }
                         }
+
                     }
                 }
             }
         }
-        div{
+        div.bottom-spacer{
             h2{"projects"}
             div{
                 @for project in projects{
-                    h3{(project.title)}
-                    p{(project.description)}
-                    ul{
-                        @for tech in project.technologies{
-                            li{(tech)}
+                    div.bottom-spacer.hr{
+                        h3{(project.title)}
+                        p{(project.description)}
+                        ul{
+                            @for tech in project.technologies{
+                                li{(tech)}
+                            }
                         }
                     }
                 }

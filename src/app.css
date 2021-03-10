@@ -10,6 +10,31 @@ body {
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 8px 0;
+}
+
+h2 {
+  width: 25%;
+  padding-bottom: 8px;
+  border-bottom: 1px solid black;
+}
+
+ul {
+  margin: 8px 0;
+}
+
+h4 + ul {
+  margin: 0;
+  margin-top: 8px;
+}
+
 a {
   cursor: pointer;
   text-decoration: none;
@@ -31,7 +56,7 @@ div.code {
   justify-content: space-between;
 }
 
-#container{
+#container {
   padding: 0 20px 20px;
   max-width: 1040px;
 }
@@ -65,4 +90,13 @@ div.code {
 .col {
   display: flex;
   flex-direction: column;
+}
+
+.bottom-spacer {
+  padding-bottom: 8px;
+}
+
+.hr:not(:last-child) {
+  width: 100%;
+  border-bottom: 2px solid black;
 }

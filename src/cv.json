@@ -3,21 +3,22 @@
     "company": "pdq.com",
     "duties": [
       "implement standards and best practices for js guild and js repos across the org",
-      "mentor other developers to ensure code quality and performance",
+      "mentor other developers to ensure code quality, consistency, and performance",
+      "provide feedback on architecture and tech proposals and brainstorm solutions",
       "optimize site for speed and increase seo"
     ],
     "notable_achievements": [
       "utilized web workers to implement a/b testing for our marketing and sales sites",
       "moved our marketing site to a modern pipeline and deployment environment using k8s",
-      "removed a ~7mb json blob that was being included in our bundle by an erroneous graphql query"
+      "debugged our build process to identify why a ~7mb json blob was being included in our bundle"
     ],
     "technologies": [
       "gatsby",
       "next",
       "web workers",
-      "react",
       "typescript",
       "react",
+      "docker",
       "k8s"
     ],
     "time": "january 2020 - present",
@@ -36,16 +37,15 @@
       "successfully pushed for the inclusion of a type library in all new js projects and incremental adoption in existing projects"
     ],
     "technologies": [
-      "angularjs",
-      "c#",
-      "flow",
+      "react",
+      "typescript",
       "graphql",
       "koa",
       "node",
-      "react",
-      "redux"
+      "angularjs",
+      "c#"
     ],
-    "time": "october 2017 - decemember 2019",
+    "time": "october 2017 - december 2019",
     "title": "software engineer"
   },
   {
@@ -61,12 +61,12 @@
     ],
     "technologies": [
       "angular",
+      "typescript",
       "express",
       "mongo",
       "node",
       "postgres",
-      "redis",
-      "typescript"
+      "redis"
     ],
     "time": "february 2017 - october 2017",
     "title": "web developer"
