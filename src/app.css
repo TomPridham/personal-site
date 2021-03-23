@@ -100,3 +100,41 @@ div.code {
   width: 100%;
   border-bottom: 2px solid black;
 }
+
+@page {
+  size: auto;
+  margin: 0;
+}
+
+@media print {
+  body {
+    margin: 8mm;
+  }
+
+  #header {
+    display: none;
+  }
+
+  .pagebreak {
+    page-break-after: always;
+  }
+
+  .break-on-second:nth-child(2){
+    page-break-after: always;
+  }
+
+  .p-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .p-fw {
+    width: 100%;
+  }
+
+  .p-twocol{
+    column-count: 2;
+    column-width: 20px;
+  }
+}

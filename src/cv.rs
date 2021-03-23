@@ -29,19 +29,21 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
     let projects: Vec<Project> = serde_json::from_str(projects_file.as_str())?;
 
     let cv_html = html! {
-        h1{"tom pridham"}
-        div.bottom-spacer{
-            h2{"contact"}
-            ul{
-                li{"email: pridham.tom@gmail.com"}
-                li{"phone: 702-285-7906"}
-                li{"website: tompridham.me"}
-                li{"github: github.com/tompridham"}
+        div.p-row{
+            h1{"tom pridham"}
+            div.bottom-spacer{
+                h2.p-fw{"contact"}
+                ul{
+                    li{"email: pridham.tom@gmail.com"}
+                    li{"phone: 702-285-7906"}
+                    li{"website: tompridham.me"}
+                    li{"github: github.com/tompridham"}
+                }
             }
         }
         div.bottom-spacer{
             h2{"skills"}
-            ul{
+            ul.p-twocol{
                 li{"react"}
                 li{"rust"}
                 li{"node"}
