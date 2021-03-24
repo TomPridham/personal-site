@@ -45,11 +45,9 @@ name:hey
 
         }
 
-        script type="text/javascript"{
-          "remark.create();"
-        }
-        script type="text/javascript"{
-            "
+        script{
+          "
+      remark.create();
       var layout = {
         title: 'Hello World Server - Apache Benchmark',
         yaxis: {title: 'Requests per Second'}, // set the y axis title
@@ -94,7 +92,7 @@ name:hey
       ];
 
       Plotly.newPlot('slide-hey', data2, layout2);
-                "
+          "
         }
     };
     Ok(h)
