@@ -32,7 +32,8 @@ name:hey
 * I really feel like I must have done something wrong with the Python server. Python is slow, but it can't be that slow. There is a big warning not to use it in a production environment, but the only difference I could see when reading about it was that you're supposed to put it behind something like nginx. So maybe it's just really bad at that part and ok at other server things.
 
 * Not super scientific, but I already spent too much time on this.
-                </textarea><script type="text/javascript">remark.create();</script><script type="text/javascript">
+                </textarea><script>
+      remark.create();
       var layout = {
         title: 'Hello World Server - Apache Benchmark',
         yaxis: {title: 'Requests per Second'}, // set the y axis title
@@ -77,7 +78,7 @@ name:hey
       ];
 
       Plotly.newPlot('slide-hey', data2, layout2);
-                </script></div><script type="text/javascript">
+          </script></div><script type="text/javascript">
     const active = document
       .querySelector('.active-header');
     if(active){
