@@ -13,7 +13,7 @@ mod header;
 mod home;
 mod projects;
 use about::about;
-use blog::{blog, svg_vs_icon_font, why_is_rust_so_fast};
+use blog::{blog, getting_the_first_job, svg_vs_icon_font, why_is_rust_so_fast};
 use cv::cv;
 use head::head;
 use header::{header_html, header_script};
@@ -58,6 +58,7 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
         (cv, "cv"),
         (projects, "projects"),
         (svg_vs_icon_font, "blog/svg_vs_icon_font"),
+        (getting_the_first_job, "blog/getting_the_first_job"),
         (why_is_rust_so_fast, "blog/why_is_rust_so_fast"),
     ];
 
