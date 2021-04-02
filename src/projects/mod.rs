@@ -18,6 +18,17 @@ pub fn projects() -> Result<Markup, Box<dyn Error>> {
 
     let projects_html = html! {
         h1{"Projects"}
+        ul.list{
+            li{
+                a href="/projects/brutemoji"{"brutemoji"}
+            }
+            li{
+                a href="/projects/svg_vs_icon_font"{"svgs vs icon font"}
+            }
+            li{
+                a href="/projects/why_is_rust_so_fast"{"why is rust so fast"}
+            }
+        }
         div.row{
             div{
                 @for project in projects{

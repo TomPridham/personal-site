@@ -1,9 +1,14 @@
 [
   {
-    "demo_url":"",
+    "demo_url": "github.com/tompridham/brutemoji",
     "description": "a picture replication program that works by randomly placing emoji on a blank canvas and comparing that to the original picture. if the new picture is closer than the old picture is, it keeps that image and repeats the process.",
     "extended_description": "an old boss of mine found a site that had a person's project called brutemoji that did what my library does but in javascript. i really liked their project and used it to create a few fun images. i haven't been able to find that same site again, so i thought i would recreate it in rust. i like the final product better than other more intelligent emoji image replicators because the final image is much more chaotic and ultimately more interesting.",
-    "picture_urls": [""],
+    "picture_urls": [
+      "tompridham.me/assets/go.png",
+      "tompridham.me/assets/georgia.png",
+      "tompridham.me/assets/me.png",
+      "tompridham.me/assets/me_low_res.png"
+    ],
     "technologies": ["rust", "image manipulation"],
     "title": "brutemoji"
   },
