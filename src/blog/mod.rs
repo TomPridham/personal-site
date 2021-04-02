@@ -13,7 +13,7 @@ pub use why_is_rust_so_fast::why_is_rust_so_fast;
 pub fn blog() -> Result<Markup, Box<dyn Error>> {
     let cv_html = html! {
         h2{"things i've written"}
-        ul#blog-list{
+        ul.list{
             li{
                 a href="/blog/getting_the_first_job"{"getting the first job"}
             }
