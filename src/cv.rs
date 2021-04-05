@@ -57,7 +57,7 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
             h2{"job history"}
             div{
                 @for cv_item in cv_items {
-                    div.bottom-spacer.hr{
+                    div.bottom-spacer.hr.job{
                         h3{(cv_item.company ) " | " (cv_item.time) " | " (cv_item.title)}
                         h4{"duties"}
                         ul{
@@ -72,7 +72,7 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
                             }
                         }
                         h4{"technologies used"}
-                        ul{
+                        ul.p-twocol{
                             @for t in cv_item.technologies{
                                 li{(t)}
                             }
@@ -83,10 +83,10 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
             }
         }
         div.bottom-spacer{
-            h2{"projects"}
+            h2#projects{"projects"}
             div{
                 @for project in projects{
-                    div.bottom-spacer.hr{
+                    div.bottom-spacer.hr.project{
                         h3{(project.title)}
                         p{(project.description)}
                         ul{
