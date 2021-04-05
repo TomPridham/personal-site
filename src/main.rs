@@ -20,7 +20,7 @@ use header::{header_html, header_script};
 use home::home;
 use maud::{html, Markup, DOCTYPE};
 use minifier::css::minify;
-use projects::projects;
+use projects::{brutemoji, projects};
 use std::error::Error;
 use std::fs::{read_to_string, DirBuilder, File};
 use std::io::prelude::*;
@@ -55,11 +55,12 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
     let html_files: Vec<HtmlFunctionAndPath> = vec![
         (about, "about"),
         (blog, "blog"),
-        (cv, "cv"),
-        (projects, "projects"),
         (svg_vs_icon_font, "blog/svg_vs_icon_font"),
         (getting_the_first_job, "blog/getting_the_first_job"),
         (why_is_rust_so_fast, "blog/why_is_rust_so_fast"),
+        (cv, "cv"),
+        (projects, "projects"),
+        (brutemoji, "projects/brutemoji"),
     ];
 
     html_files.iter().try_for_each(|(fun, name)| {

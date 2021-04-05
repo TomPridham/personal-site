@@ -25,7 +25,7 @@ struct Project {
 pub fn cv() -> Result<Markup, Box<dyn Error>> {
     let cv_file = read_to_string(Path::new("src/cv.json"))?;
     let cv_items: Vec<Job> = serde_json::from_str(cv_file.as_str())?;
-    let projects_file = read_to_string(Path::new("src/projects.json"))?;
+    let projects_file = read_to_string(Path::new("src/projects/projects.json"))?;
     let projects: Vec<Project> = serde_json::from_str(projects_file.as_str())?;
 
     let cv_html = html! {
