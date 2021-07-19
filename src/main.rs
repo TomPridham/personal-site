@@ -15,12 +15,13 @@ mod projects;
 use about::about;
 use blog::{blog, getting_the_first_job, svg_vs_icon_font, why_is_rust_so_fast};
 use cv::cv;
+use fs_extra::dir;
 use head::head;
 use header::{header_html, header_script};
 use home::home;
 use maud::{html, Markup, DOCTYPE};
 use minifier::css::minify;
-use projects::{brutemoji, projects};
+use projects::{brutemoji, projects, wasmsweeper};
 use std::error::Error;
 use std::fs::{read_to_string, DirBuilder, File};
 use std::io::prelude::*;
@@ -61,6 +62,7 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
         (cv, "cv"),
         (projects, "projects"),
         (brutemoji, "projects/brutemoji"),
+        (wasmsweeper, "projects/wasmsweeper"),
     ];
 
     html_files.iter().try_for_each(|(fun, name)| {
@@ -83,6 +85,22 @@ fn generate_css_file() -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
+fn copy_static_files() -> Result<(), Box<dyn Error>> {
+    dir::copy(
+        "static/",
+        "dist/",
+        &dir::CopyOptions {
+            overwrite: true,
+            buffer_size: 64000,
+            skip_exist: false,
+            copy_inside: true,
+            content_only: true,
+            depth: 0,
+        },
+    )?;
+    Ok(())
+}
+
 fn main() {
     match generate_html_files() {
         Err(why) => panic!(
@@ -97,5 +115,12 @@ fn main() {
             why.to_string()
         ),
         Ok(_) => println!("css file generated"),
+    }
+    match copy_static_files() {
+        Err(why) => panic!(
+            "something went wrong copying static files: {}",
+            why.to_string()
+        ),
+        Ok(_) => println!("static files copied"),
     }
 }
