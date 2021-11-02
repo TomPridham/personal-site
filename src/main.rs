@@ -13,7 +13,10 @@ mod header;
 mod home;
 mod projects;
 use about::about;
-use blog::{blog, getting_the_first_job, svg_vs_icon_font, why_is_rust_so_fast};
+use blog::{
+    a_b_testing_with_cloudflare_workers, blog, getting_the_first_job, svg_vs_icon_font,
+    why_is_rust_so_fast,
+};
 use cv::cv;
 use fs_extra::dir;
 use head::head;
@@ -56,8 +59,12 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
     let html_files: Vec<HtmlFunctionAndPath> = vec![
         (about, "about"),
         (blog, "blog"),
-        (svg_vs_icon_font, "blog/svg_vs_icon_font"),
+        (
+            a_b_testing_with_cloudflare_workers,
+            "blog/a_b_testing_with_cloudflare_workers",
+        ),
         (getting_the_first_job, "blog/getting_the_first_job"),
+        (svg_vs_icon_font, "blog/svg_vs_icon_font"),
         (why_is_rust_so_fast, "blog/why_is_rust_so_fast"),
         (cv, "cv"),
         (projects, "projects"),
