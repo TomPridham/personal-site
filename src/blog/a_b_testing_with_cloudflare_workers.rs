@@ -4,6 +4,7 @@ use maud::{html, Markup};
 
 pub fn a_b_testing_with_cloudflare_workers() -> Result<Markup, Box<dyn std::error::Error>> {
     let h = html! {
+        h1{"a/b testing with cloudflare workers"}
         p{
             "at my current job(pdq.com), we had been wanting to implement a/b testing for our marketing site. because our site is server side rendered and we were sending down fully formed html on each request this was trickier than it might have otherwise been. the easiest method is to replace content at runtime based on a feature flag fetched from an api."
         }

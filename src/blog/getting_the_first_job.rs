@@ -4,6 +4,7 @@ use maud::{html, Markup};
 
 pub fn getting_the_first_job() -> Result<Markup, Box<dyn std::error::Error>> {
     let h = html! {
+        h1{"getting the first job"}
         p{
             "i've been asked a few times if i had any tips and tricks on how to get a job as a recent bootcamp/uni grad. i figured it would be useful to write out a longer form thing that i could add to as time went on rather than giving out what i happen to remember at the time."
         }

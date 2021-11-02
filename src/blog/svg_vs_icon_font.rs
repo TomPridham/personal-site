@@ -4,6 +4,7 @@ use maud::{html, Markup};
 
 pub fn svg_vs_icon_font() -> Result<Markup, Box<dyn std::error::Error>> {
     let h = html! {
+        h1{"svg vs icon fonts"}
         p{
             "at my work(jane.com) we have been using font icons. for a long time this was the defacto solution and is still the go to for lots of companies. our designers wanted to start using more icons, though. which caused two issues: our already large font file was going to get larger for icons that would only be used sparingly or not at all in some cases and adding new icons would require publishing a new icon font every time there was a change. the icon font we were using and the icons the designers wanted to use had already drifted apart because creating and uploading a new icon font required that the designers upload the new icons, as well as all the old ones) to icomoon, give the new icon font to someone with s3 access so they could upload it, then we would need to update our icon component to use the new font file and to include the css for the new icons, then we would need to publish a new version of our component library and update all the apps using it. if it sounds like a really involved process, that's because it is."
         }
