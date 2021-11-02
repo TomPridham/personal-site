@@ -3,6 +3,7 @@ name = "portfolio"
 version = "0.2.2"
 authors = ["Tom Pridham <pridham.tom@gmail.com>"]
 edition = "2021"
+publish = false
 
 [dependencies]
 fs_extra = "1.2.0"
