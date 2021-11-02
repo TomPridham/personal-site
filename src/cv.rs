@@ -83,7 +83,7 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
             }
         }
         div.bottom-spacer{
-            h2#projects{"projects"}
+            h2 #projects{"projects"}
             div{
                 @for project in projects{
                     div.bottom-spacer.hr.project{
