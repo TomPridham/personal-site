@@ -8,6 +8,7 @@
     ],
     "notable_achievements": [
       "utilized web workers to implement a/b testing for our marketing and sales sites",
+      "re implemented our sales and customer portal to better match business requirements and improve analytics",
       "moved our marketing site to a modern pipeline and deployment environment using k8s",
       "created a live chat and QA app for viewers of our weekly webcast using firebase as a backend",
       "successfully pitched a rust project, took the lead on development, helped teammembers get up to speed on rust"
