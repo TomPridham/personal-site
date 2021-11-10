@@ -4,21 +4,22 @@
     "duties": [
       "implement standards and best practices for js guild and js repos across the org",
       "mentor other developers to ensure code quality, consistency, and performance",
-      "provide feedback on architecture and tech proposals and brainstorm solutions",
-      "optimize site for speed and increase seo"
+      "provide feedback on architecture and tech proposals and brainstorm solutions"
     ],
     "notable_achievements": [
       "utilized web workers to implement a/b testing for our marketing and sales sites",
       "moved our marketing site to a modern pipeline and deployment environment using k8s",
-      "debugged our build process to identify why a ~7mb json blob was being included in our bundle"
+      "created a live chat and QA app for viewers of our weekly webcast using firebase as a backend",
+      "successfully pitched a rust project, took the lead on development, helped teammembers get up to speed on rust"
     ],
     "technologies": [
-      "gatsby",
-      "next",
-      "web workers",
       "typescript",
+      "rust",
+      "web workers",
+      "node",
       "react",
       "docker",
+      "firebase",
       "k8s"
     ],
     "time": "january 2020 - present",
