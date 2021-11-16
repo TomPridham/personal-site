@@ -35,7 +35,8 @@ unsafe {
 }
 </code></div></pre><p>the next parameter is `bookmark`, which is only required if the flags parameter that is last contains the `EvtSubscribeStartAfterBookmark` flag, otherwise it should be NULL. since we aren't going to be using that flag we can set it to 0 the same as the session! next we have `context` which is used to communicate between the callback we are going to provide and the rest of our program. we're going to skip over this for now and just use `std::ffi::null_mut`. next we need a callback, which is a function of the following form</p><pre><div class="code"><code>
 pub type EVT_SUBSCRIBE_CALLBACK = unsafe extern &quot;system&quot; fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const c_void, event: isize) -&gt; u32;
-</code></div></pre><p>the first parameter here is an <a href="https://docs.microsoft.com/en-us/windows/win32/api/winevt/ne-winevt-evt_subscribe_notify_action">enum</a> that is basically `Result`, it indicates whether there was an error or if there is a notification. that's pretty easy to take care of. we can just check if it's and error and exit early if so. the second param is the context, which is the `null_mut` pointer we made earlier. we're still gonna ignore it for now. the last one is the event handle which we will pass to another `EventLog` api to fetch the actual event, but we'll come back to that. let's stub out the callback function first.</p><pre><div class="code"><code>
+</code></div></pre><p>the first parameter here is an <a href="https://docs.microsoft.com/en-us/windows/win32/api/winevt/ne-winevt-evt_subscribe_notify_action">enum</a> that is basically `Result`, it indicates whether there was an error or if there is a notification. that's pretty easy to take care of. we can just check if it's and error and exit early if so. the second param is the context, which is the `null_mut` pointer we made earlier. we're still gonna ignore it for now. the last one is the event handle which we will pass to another `EventLog` api to fetch the actual event, but we'll come back to that. let's stub out the callback function first. something important to note is the `#[no_mangle]` attribute. this tells rust to leave the function name as is so that it can be referenced by outside code correctly. we found some odd behavior where the mangling behavior was only breaking things when building the release version for `x86_64-pc-windows-msvc`. when i built the release version on my linux laptop for the `x86_64-pc-windows-gnu` toolchain, everything worked as expected. but when my coworkers built it on their windows machine using the msvc target, the program would crash as soon as an event fired.</p><pre><div class="code"><code>
+#[no_mangle]
 extern &quot;system&quot; fn event_callback(
     action: EventLog::EVT_SUBSCRIBE_NOTIFY_ACTION,
     p_context: *const c_void,
@@ -48,6 +49,7 @@ extern &quot;system&quot; fn event_callback(
     0
 }
 </code></div></pre><p>okay, now we are quitting early if there is an error and returning a 0 for success otherwise. now we need to do something to get the actual event data. we need to use the <a href="https://microsoft.github.io/windows-docs-rs/doc/windows/Win32/System/EventLog/fn.EvtRender.html">EvtRender</a> api. the first param is context, which should be NULL if the third param is `EventLog::EvtRenderEventXml`, which is what we want, so we will set it to 0. in our case, the second param is the event handle. the third param will be `EvtRenderEventXml` so that we get the full XML object back. `EvtRenderEventXml` is a newtype tuple wrapper over an i32, so we actually want `EvtRenderEventXml.0`. the fourth param is the buffer size in bytes, which we're going to set at an arbitrary 65000 bytes because that should be far larger than any events. if the buffer is not large enough, the function will fail, but we're going to assume that will be large enough for now. next we need a buffer which is just a pointer to an array. the second to last param will be the amount of bytes actually used by the event and the last won't be used because we are getting the full xml object, we can set both to 0. putting all that together we end up with our callback looking like this</p><pre><div class="code"><code>
+#[no_mangle]
 extern &quot;system&quot; fn event_callback(
     action: EventLog::EVT_SUBSCRIBE_NOTIFY_ACTION,
     p_context: *const c_void,
@@ -80,6 +82,7 @@ extern &quot;system&quot; fn event_callback(
     0
 }
 </code></div></pre><p>whew. okay, we are almost to a point where we can actually look at the events! all we need to do is turn the buffer into a string. luckily, that part is relatively easy. rust has some nice std methods that make turning a byte vec into a string easy. because the windows-rs crate is just a wrapper over the C apis, the event xml string is ended with a null terminator byte which we need to remove.</p><pre><div class="code"><code>
+#[no_mangle]
 extern &quot;system&quot; fn event_callback(
     action: EventLog::EVT_SUBSCRIBE_NOTIFY_ACTION,
     p_context: *const c_void,
@@ -89,11 +92,31 @@ extern &quot;system&quot; fn event_callback(
     // take a slice of only the used buffer, then turn that into a string
     let s = String::from_utf8(buffer[..(used_buffer as usize)].to_vec())
         .unwrap_or_default();
-    s.pop().ok();
+    // pop off the null byte
+    s.pop().unwrap_or_default();
     println!(&quot;{}&quot;, s);
     0
 }
-</code></div></pre><p>you should see a very large xml string printed to the console. hooray! this is only mildly useful however. we need to get that information back to our main rust program so that we can do something with it besides print it to our local terminal. this is getting pretty long so i will be breaking it up into multiple parts. i'll end this part here.</p></div><script type="text/javascript">
+</code></div></pre><p>now that we have that out of the way, we can finish our subscribe function from above. the last param we need to provide is `flags`, which is an enum that maps to a u32. it describes when we should start subscribing to events. there are a few possible <a href="https://docs.microsoft.com/en-us/windows/win32/api/winevt/ne-winevt-evt_subscribe_flags">values</a>. we are only interested in future events, so we will use `EventLog::EvtSubscribeToFutureEvents`. now we can put everything together and try this out.</p><pre><div class="code"><code>
+let session = 0;
+let signal_event = None;
+let channel_path = &quot;Security&quot;;
+let query = &quot;EventID=4624 or EventID=4634&quot;;
+let bookmark = 0;
+let context = std::ptr::null_mut();
+let flags: u32 = EventLog::EvtSubscribeToFutureEvents.0 as u32;
+unsafe {
+    EventLog::EvtSubscribe(
+        session,
+        signal_event,
+        channel_path,
+        query
+        bookmark,
+        context,
+        Some(event_callback),
+    );
+}
+</code></div></pre><p>you should see a very large xml string printed to the console. hooray! this is only mildly useful however. we need to get that information back to our main rust program so that we can do something with it besides print it to our local terminal. this is getting pretty long so i will be breaking it up into multiple <a href="/blog/windows_data_with_actors_2">parts</a>. i'll end this part here.</p></div><script type="text/javascript">
     const active = document
       .querySelector('.active-header');
     if(active){
