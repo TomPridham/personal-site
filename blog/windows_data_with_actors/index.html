@@ -62,7 +62,9 @@ extern &quot;system&quot; fn event_callback(
 
     let render_context = 0;
     const BUFFER_SIZE: usize = 65_000;
-    let mut buffer: [u8; BUFFER_SIZE] = [0; BUFFER_SIZE];
+    // windows use UTF16 for their strings which means that their strings are 16 bytes wide
+    // instead of the normal 8 for rust's UTF8 strings
+    let mut buffer: [u16; BUFFER_SIZE] = [0; BUFFER_SIZE];
     let buffer_ptr = buffer.as_mut_ptr() as *mut c_void;
     let mut used_buffer = 0;
     let mut property_count = 0;
@@ -90,10 +92,7 @@ extern &quot;system&quot; fn event_callback(
 ) -&gt; u32 {
     // snip
     // take a slice of only the used buffer, then turn that into a string
-    let s = String::from_utf8(buffer[..(used_buffer as usize)].to_vec())
-        .unwrap_or_default();
-    // pop off the null byte
-    s.pop().unwrap_or_default();
+    let s = String::from_utf16(&amp;buffer).unwrap_or_default();
     println!(&quot;{}&quot;, s);
     0
 }
