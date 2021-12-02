@@ -2,12 +2,12 @@ extern crate maud;
 
 use maud::{html, Markup};
 
-pub fn windows_data_with_actors_2() -> Result<Markup, Box<dyn std::error::Error>> {
+pub fn windows_event_data_with_rust_2() -> Result<Markup, Box<dyn std::error::Error>> {
     let h = html! {
         h1{"getting windows event data with actors part 2"}
         p{
             "back in "
-                a href="/blog/windows_data_with_actors"{"part 1"}
+                a href="/blog/windows_event_data_with_rust"{"part 1"}
             " we successfully subscribed to the logout/login windows events and were able to print them to the console. but that's only minimally useful if we can't send that information back to the rest of our program somehow. actor libraries are a pretty popular method of passing data around in rust programs. probably the most well known is "
                 a href="https://github.com/actix/actix"{"actix"}
                 " of "

@@ -12,10 +12,11 @@ mod head;
 mod header;
 mod home;
 mod projects;
+
 use about::about;
 use blog::{
     a_b_testing_with_cloudflare_workers, blog, getting_the_first_job, svg_vs_icon_font,
-    why_is_rust_so_fast, windows_data_with_actors, windows_data_with_actors_2,
+    why_is_rust_so_fast, windows_event_data_with_rust, windows_event_data_with_rust_2,
 };
 use cv::cv;
 use fs_extra::dir;
@@ -64,10 +65,13 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
             "blog/a_b_testing_with_cloudflare_workers",
         ),
         (getting_the_first_job, "blog/getting_the_first_job"),
-        (windows_data_with_actors, "blog/windows_data_with_actors"),
         (
-            windows_data_with_actors_2,
-            "blog/windows_data_with_actors_2",
+            windows_event_data_with_rust,
+            "blog/windows_event_data_with_rust",
+        ),
+        (
+            windows_event_data_with_rust_2,
+            "blog/windows_event_data_with_rust_2",
         ),
         (svg_vs_icon_font, "blog/svg_vs_icon_font"),
         (why_is_rust_so_fast, "blog/why_is_rust_so_fast"),

@@ -2,7 +2,7 @@ extern crate maud;
 
 use maud::{html, Markup};
 
-pub fn windows_data_with_actors() -> Result<Markup, Box<dyn std::error::Error>> {
+pub fn windows_event_data_with_rust() -> Result<Markup, Box<dyn std::error::Error>> {
     let h = html! {
         h1{"getting windows event data with actors"}
         p{
