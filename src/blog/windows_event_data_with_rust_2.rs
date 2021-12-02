@@ -4,50 +4,16 @@ use maud::{html, Markup};
 
 pub fn windows_event_data_with_rust_2() -> Result<Markup, Box<dyn std::error::Error>> {
     let h = html! {
-        h1{"getting windows event data with actors part 2"}
+        h1{"getting windows event data with rust part 2"}
         p{
             "back in "
                 a href="/blog/windows_event_data_with_rust"{"part 1"}
-            " we successfully subscribed to the logout/login windows events and were able to print them to the console. but that's only minimally useful if we can't send that information back to the rest of our program somehow. actor libraries are a pretty popular method of passing data around in rust programs. probably the most well known is "
-                a href="https://github.com/actix/actix"{"actix"}
-                " of "
-                a href="https://github.com/actix/actix-web"{"actix-web"}
-                " fame. the main downside for us was that you need to use their runtime. which caused enough issues integrating it later in the project that i had to look for an alternative. i found the "
-                    a href="https://github.com/popzxc/messages-rs"{"messages"}
-                " library, which is runtime agnostic, has an api inspired by actix and just worked. so, that's what we are going to be using today."
+            " we successfully subscribed to the logout/login windows events and were able to print them to the console. but that's only minimally useful if we can't send that information back to the rest of our program somehow. one way to get that data back into our main program is via "
+                a href="https://docs.rs/tokio/0.1.16/tokio/sync/mpsc/index.html" {"mpsc channels"}
+            ". mpsc stands for `multiple producer, single consumer`. which means that there will be a single handler, but you could potentially subscribe to multiple different windows events with the same channel."
         }
         p{
-            "so, first thing's first. we need to create our actors. the messages readme has an "
-            a href="https://github.com/popzxc/messages-rs#with-runtime-features"{"example"}
-            " that gets us most of the way. in a new file called event_actor.rs, i have the following."
-        }
-        pre{
-            div.code{
-                code{
-r#"
-use messages::prelude::*;
-use serde::Serialize;
-
-#[derive(Serialize)]
-pub struct EventData(pub String);
-
-pub struct Queue;
-
-#[async_trait]
-impl Actor for Queue {}
-
-#[async_trait]
-impl Notifiable<EventData> for Queue {
-    async fn notify(&mut self, event_data: EventData, _context: &Context<Self>) {
-    // do something with the data here
-    }
-}
-"#
-                }
-            }
-        }
-        p{
-            "okay, now that we have that in place we can work on integrating it into our windows event handler! first we need to make our queue available to be used within our callback. we ended the last part with this."
+            "first we need to make our sender available to be used within our callback. we ended the last part with this."
         }
         pre{
             div.code{
@@ -76,20 +42,27 @@ unsafe {
             }
         }
         p{
-            "instantiating it is pretty easy. surely it won't be this easy to use it?"
+            "instantiating the channel is pretty easy. surely it won't be this easy to use it?"
         }
         pre{
             div.code{
                 code{
 r#"
 //snip
-let queue = Queue::new().spawn();
-let context = queue;
+let (sender, mut receiver) = unbounded_channel();
+let context = sender;
 unsafe {
     EventLog::EvtSubscribe(
         //snip
         context,
+        Some(event_callback),
     );
+}
+
+loop {
+    if let Some(s_event) = receiver.recv().await {
+        println!("received event: {}", s_event.trim());
+    }
 }
 "#
                 }
@@ -98,22 +71,28 @@ unsafe {
         p{
             "nope. trying to run this we get the following error: `expected enum 'c_void', found struct`. so now we need to turn that struct into a raw pointer to be able to pass it as our context. to do this we need to familiarize ourselves with some of the spookier(imo) parts of unsafe rust, dealing with raw pointers. we can turn a reference to our struct into a compatible c pointer in safe rust. the docs for "
                 a href="https://doc.rust-lang.org/std/ffi/enum.c_void.html"{"c_void"}
-            " talk about it better than i could and link to more information on pointers. but the gist of what we are doing is coercing a reference to our queue into a const pointer, then casting it as c_void pointer."
+            " talk about it better than i could and link to more information on pointers. but the gist of what we are doing is coercing a reference to our producer into a const pointer, then casting it as c_void pointer."
          }
         pre{
             div.code{
                 code{
 r#"
 //snip
-let queue = Queue::new().spawn();
-let raw_queue: *const Address<Queue> = &queue;
-let context = raw_queue as *const c_void;
+let (mut sender, mut receiver) = unbounded_channel();
+let context = &mut sender as *mut UnboundedSender<String> as *const c_void;
 
 unsafe {
     EventLog::EvtSubscribe(
         //snip
         context,
+        Some(event_callback),
     );
+}
+
+loop {
+    if let Some(s_event) = receiver.recv().await {
+        println!("received event: {}", s_event.trim());
+    }
 }
 "#
                 }
@@ -133,8 +112,9 @@ extern "system" fn event_callback(
     h_event: isize,
 ) -> u32 {
     //snip
-    let queue_ptr = p_context as *mut Address<Queue>;
-    let queue: Address<Queue> = unsafe { &mut *queue_ptr };
+    //
+    let sender_ptr = p_context as *mut UnboundedSender<String>;
+    let sender = unsafe { &mut *sender_ptr };
     //snip
 }
 "#
@@ -142,9 +122,33 @@ extern "system" fn event_callback(
             }
         }
         p{
-            "great! now we can finally call this function and be done with this. but there is a problem, `queue.notify()` is an async function, which would require we make our extern function `async` to properly await it. that doesn't work either, unfortunately. because rust represents async functions with opaque return types, this changes the return type from u32 to something else. so, now we need to find a way to run our future in a sync context. luckily, i was able to find a wonderful "
-            a href="https://stackoverflow.com/a/56258784/6168502"{"answer "}
-            " by shepmaster on SO that details how to implement our own waker. since the notify function doesn't actually wait for a response from the actor, thisuse should only ever hit the ready case. add all that biz to a new file called `waker.rs` and then we can use that in our callback."
+            "there is still a problem here though. the sender will get dropped after the first invocation of the callback, which isn't great because that subscription is relying on the callback function working until it is unsubscribed(i.e. forever). so after the first invocation of the callback we will have an invalid pointer. we need to do something to make the sender persist for as long as the program does. enter "
+            a href="https://doc.rust-lang.org/std/boxed/struct.Box.html#method.leak"{"Box::leak"}
+            ". this will let us put the sender on the heap and then leak it to prevent it's destructor from being run."
+        }
+        pre{
+            div.code{
+                code{
+r#"
+let (mut sender, mut receiver) = unbounded_channel();
+
+let sender = Box::new(sender);
+let s = Box::leak(sender.clone());
+
+let context = s as *mut UnboundedSender<String> as *const c_void;
+unsafe {
+    EventLog::EvtSubscribe(
+        //snip
+        context,
+        Some(event_callback),
+    );
+}
+"#
+                }
+            }
+        }
+        p{
+            "the last thing we need to do is update our pointer conversion in the callback."
         }
         pre{
             div.code{
@@ -157,21 +161,22 @@ extern "system" fn event_callback(
     h_event: isize,
 ) -> u32 {
     //snip
-    let queue_ptr = p_context as *mut Address<Queue>;
-    let queue: Address<Queue> = unsafe { &mut *queue_ptr };
-
-    // run our async message handler in this sync context
-    if drive_to_completion(queue.notify(EventData(s))).is_err() {
-        return 1;
+    //
+    let sender = unsafe {
+        (p_context as *mut UnboundedSender<String>)
+            .as_ref()
+            .unwrap()
     };
-    0
+    //snip
 }
 "#
                 }
             }
         }
         p{
-            "okay, now the next time you run that you should be able to access the xml string inside the actor and do something with it. thank u 4 coming 2 my ted talk."
+            "okay, now the next time you run that you should be able to access the xml string inside the main loop and do something with it. you can view working code "
+            a href="https://github.com/TomPridham/windows-events-rust"{"here"}
+            ". thank u 4 coming 2 my ted talk."
         }
     };
     Ok(h)
