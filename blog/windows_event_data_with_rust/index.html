@@ -83,7 +83,7 @@ extern &quot;system&quot; fn event_callback(
 
     0
 }
-</code></div></pre><p>whew. okay, we are almost to a point where we can actually look at the events! all we need to do is turn the buffer into a string. luckily, that part is relatively easy. rust has some nice std methods that make turning a byte vec into a string easy. because the windows-rs crate is just a wrapper over the C apis, the event xml string is ended with a null terminator byte which we need to remove.</p><pre><div class="code"><code>
+</code></div></pre><p>whew. okay, we are almost to a point where we can actually look at the events! all we need to do is turn the buffer into a string. luckily, that part is relatively easy. rust has some nice std methods that make turning a byte vec into a string easy. because the buffer we allocated was so big, we need to trim off any trailing 0s to avoid miles of empty space when printing.</p><pre><div class="code"><code>
 #[no_mangle]
 extern &quot;system&quot; fn event_callback(
     action: EventLog::EVT_SUBSCRIBE_NOTIFY_ACTION,
@@ -92,7 +92,9 @@ extern &quot;system&quot; fn event_callback(
 ) -&gt; u32 {
     // snip
     // take a slice of only the used buffer, then turn that into a string
-    let s = String::from_utf16(&amp;buffer).unwrap_or_default();
+    let s = String::from_utf16_lossy(&amp;buffer)
+        .trim_matches(char::from(0))
+        .to_string();
     println!(&quot;{}&quot;, s);
     0
 }
