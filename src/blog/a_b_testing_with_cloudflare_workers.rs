@@ -25,7 +25,7 @@ return (
             }
         }
         p{
-            "this would have resulted in content popping in or shifting once the api finally resolved. which made it a non-starter. the other method that we saw commonly in articles online was to introduce an artificial delay to allow the request to resolve before actually displaying anything 🤮."
+            "this would have resulted in content popping in or shifting once the api finally resolved, which made it a non-starter. the other method that we saw commonly in articles online was to introduce an artificial delay to allow the request to resolve before actually displaying anything 🤮."
         }
         pre{
             div.code{
@@ -63,7 +63,7 @@ return (
             "so, now we had multiple versions of our site being built and deployed based on our google optimize feature flags. we just needed to figure out how to direct people to the correct pod while obfuscating the fact that they were really accessing something like asdflkbeubfdf-1.ab.pdq.com."
         }
         p{
-            "we use cloudflare for our dns and to manage redirects for a variety of use cases. they have also offer a service they call 'workers' that is basically just a serverless function that sits in front of their dns servers. that seemed like the perfect opportunity to consolidate the mishmash of one off redirects and get us a/b testing. as an added bonus this would let us remove a bunch of untestable rules and add tests for the rest of the existing redirects. so we got started replacing the redirects and adding tests(such a big spook that there weren't any to begin with 👻) for existing ones. once that was working, it was time to implement the a/b testing functionality."
+            "we use cloudflare for our dns and to manage redirects for a variety of use cases. they also offer a service they call 'workers' that is basically just a serverless function that sits in front of their dns servers. that seemed like the perfect opportunity to consolidate the mishmash of one off redirects and get us a/b testing. as an added bonus this would let us remove a bunch of untestable rules and add tests for the rest of the existing redirects. so we got started replacing the redirects and adding tests(such a big spook that there weren't any to begin with 👻) for existing ones. once that was working, it was time to implement the a/b testing functionality."
         }
         p{
             "the actual a/b testing logic in the worker is pretty simple. it's something like this"

@@ -178,7 +178,7 @@ extern "system" fn event_callback(
             }
         }
         p{
-            "whew. okay, we are almost to a point where we can actually look at the events! all we need to do is turn the buffer into a string. luckily, that part is relatively easy. rust has some nice std methods that make turning a byte vec into a string easy. because the windows-rs crate is just a wrapper over the C apis, the event xml string is ended with a null terminator byte which we need to remove."
+            "whew. okay, we are almost to a point where we can actually look at the events! all we need to do is turn the buffer into a string. luckily, that part is relatively easy. rust has some nice std methods that make turning a byte vec into a string easy. because the buffer we allocated was so big, we need to trim off any trailing 0s to avoid miles of empty space when printing."
         }
         pre{
             div.code{
@@ -192,7 +192,9 @@ extern "system" fn event_callback(
 ) -> u32 {
     // snip
     // take a slice of only the used buffer, then turn that into a string
-    let s = String::from_utf16(&buffer).unwrap_or_default();
+    let s = String::from_utf16_lossy(&buffer)
+        .trim_matches(char::from(0))
+        .to_string();
     println!("{}", s);
     0
 }
