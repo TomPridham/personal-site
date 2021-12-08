@@ -2,6 +2,7 @@ extern crate maud;
 
 mod a_b_testing_with_cloudflare_workers;
 mod getting_the_first_job;
+mod javascript_detective_work;
 mod svg_vs_icon_font;
 mod why_is_rust_so_fast;
 mod windows_event_data_with_rust;
@@ -9,6 +10,7 @@ mod windows_event_data_with_rust_2;
 
 pub use a_b_testing_with_cloudflare_workers::a_b_testing_with_cloudflare_workers;
 pub use getting_the_first_job::getting_the_first_job;
+pub use javascript_detective_work::javascript_detective_work;
 use maud::{html, Markup};
 use std::error::Error;
 pub use svg_vs_icon_font::svg_vs_icon_font;
@@ -20,6 +22,9 @@ pub fn blog() -> Result<Markup, Box<dyn Error>> {
     let cv_html = html! {
         h2{"things i've written"}
         ul.list{
+            li{
+                a href="/blog/javascript_detective_work"{"javascript detective work 🕵️"}
+            }
             li{
                 a href="/blog/windows_event_data_with_rust_2"{"accessing windows event data with rust part 2"}
             }
