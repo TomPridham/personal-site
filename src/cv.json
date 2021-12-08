@@ -2,16 +2,16 @@
   {
     "company": "pdq.com",
     "duties": [
-      "implement standards and best practices for js guild and js repos across the org",
+      "implement standards and best practices for js guild, js repos across the org, and rust repos",
       "mentor other developers to ensure code quality, consistency, and performance",
       "provide feedback on architecture and tech proposals and brainstorm solutions"
     ],
     "notable_achievements": [
+      "successfully pitched a rust project, took the lead on development, helped teammembers get up to speed on rust",
       "utilized web workers to implement a/b testing for our marketing and sales sites",
       "re implemented our sales and customer portal to better match business requirements and improve analytics",
       "moved our marketing site to a modern pipeline and deployment environment using k8s",
-      "created a live chat and QA app for viewers of our weekly webcast using firebase as a backend",
-      "successfully pitched a rust project, took the lead on development, helped teammembers get up to speed on rust"
+      "created a live chat and QA app for viewers of our weekly webcast using firebase as a backend"
     ],
     "technologies": [
       "typescript",
