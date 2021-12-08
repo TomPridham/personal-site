@@ -56,7 +56,7 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
 
     let mut file = File::create(&dist.join(path))?;
     let markup = generate_markup(home(), "home");
-    file.write_all(&markup.into_string().as_bytes())?;
+    file.write_all(markup.into_string().as_bytes())?;
 
     let html_files: Vec<HtmlFunctionAndPath> = vec![
         (about, "about"),
@@ -90,7 +90,7 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
         let mut file = File::create(p.join(&path))?;
         let markup = generate_markup(fun()?, name);
 
-        file.write_all(&markup.into_string().as_bytes())?;
+        file.write_all(markup.into_string().as_bytes())?;
         Ok::<(), Box<dyn Error>>(())
     })
 }
@@ -99,7 +99,7 @@ fn generate_css_file() -> Result<(), Box<dyn Error>> {
     let css = read_to_string(Path::new("src/app.css"))?;
     let minified_css = minify(css.as_str())?;
     let mut file = File::create(Path::new("dist/app.css"))?;
-    file.write_all(&minified_css.as_bytes())?;
+    file.write_all(minified_css.as_bytes())?;
     Ok(())
 }
 
@@ -121,24 +121,15 @@ fn copy_static_files() -> Result<(), Box<dyn Error>> {
 
 fn main() {
     match generate_html_files() {
-        Err(why) => panic!(
-            "something went wrong generating the html files: {}",
-            why.to_string()
-        ),
+        Err(why) => panic!("something went wrong generating the html files: {}", why),
         Ok(_) => println!("html files generated"),
     }
     match generate_css_file() {
-        Err(why) => panic!(
-            "something went wrong generating the css file: {}",
-            why.to_string()
-        ),
+        Err(why) => panic!("something went wrong generating the css file: {}", why),
         Ok(_) => println!("css file generated"),
     }
     match copy_static_files() {
-        Err(why) => panic!(
-            "something went wrong copying static files: {}",
-            why.to_string()
-        ),
+        Err(why) => panic!("something went wrong copying static files: {}", why),
         Ok(_) => println!("static files copied"),
     }
 }
