@@ -1,0 +1,95 @@
+@media (max-width: 440px) {
+  #container{
+    padding: 0 20px 43px;
+  }
+  /* hamburger menu adapted from: https://codepen.io/erikterwan/pres/EVzeRP */
+  nav {
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    transform-origin: 0% 0%;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+
+  nav input {
+    display: block;
+    width: 43px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    right: 35px;
+    cursor: pointer;
+
+    opacity: 0;
+    z-index: 2;
+  }
+
+  span.hamburger {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    top: 4px;
+    position: relative;
+
+    background: #959dcb;
+    border-radius: 3px;
+
+    z-index: 1;
+
+    right: 33px;
+    transform-origin: 4px 0px;
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  }
+
+  input:checked ~ span.hamburger {
+    opacity: 1;
+    transform: rotate(-45deg) translate(2px, 4px);
+  }
+
+  input:checked ~ span.hamburger:nth-last-child(4) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  input:checked ~ span.hamburger:nth-last-child(3) {
+    transform: rotate(45deg) translate(0, -10px);
+  }
+
+  #menu {
+    flex-direction: column;
+    position: absolute;
+    border-top: 1px solid #d5d8ea;
+    border-left: 1px solid #d5d8ea;
+    background-color: #292d3e;
+
+    transform-origin: 0% 0%;
+    margin-top: 8px;
+    transform: translate(13px, -180px);
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+
+  nav input:checked ~ ul#menu {
+    transform: translate(-100px, -180px);
+  }
+
+  /*light mode overrides*/
+  @media (prefers-color-scheme: light) {
+    nav {
+      background: white;
+    }
+    #menu {
+      border-top: 1px solid black;
+      border-left: 1px solid black;
+      background-color: white;
+    }
+
+    span.hamburger {
+      background: black;
+    }
+  }
+}

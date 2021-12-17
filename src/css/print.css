@@ -1,0 +1,56 @@
+@page {
+  size: auto;
+  margin: 0;
+}
+
+@media print {
+  body {
+    margin: 8mm;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .job:nth-child(1) {
+    page-break-after: always;
+    border-bottom: none;
+  }
+
+  .job:nth-child(2n) {
+    padding-top: 8mm;
+  }
+
+  .job:nth-child(2n + 1) {
+    page-break-after: always;
+    border-bottom: none;
+  }
+
+  #projects {
+    padding-top: 8mm;
+  }
+
+  .project:nth-child(3n) {
+    page-break-after: always;
+    border-bottom: none;
+  }
+
+  .project:last-child {
+    padding-top: 8mm;
+  }
+
+  .p-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .p-fw {
+    width: 100%;
+  }
+
+  .p-twocol {
+    column-count: 2;
+    column-width: 20px;
+  }
+}

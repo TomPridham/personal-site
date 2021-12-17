@@ -28,7 +28,7 @@ use maud::{html, Markup, DOCTYPE};
 use minifier::css::minify;
 use projects::{brutemoji, projects, wasmsweeper};
 use std::error::Error;
-use std::fs::{read_to_string, DirBuilder, File};
+use std::fs::{DirBuilder, File};
 use std::io::prelude::*;
 use std::path::Path;
 
@@ -96,8 +96,14 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
 }
 
 fn generate_css_file() -> Result<(), Box<dyn Error>> {
-    let css = read_to_string(Path::new("src/app.css"))?;
-    let minified_css = minify(css.as_str())?;
+    let mut css: Vec<u8> = Vec::new();
+    for entry in std::fs::read_dir("src/css")? {
+        let path = entry?.path();
+
+        let mut file = File::open(path)?;
+        file.read_to_end(&mut css)?;
+    }
+    let minified_css = minify(String::from_utf8(css)?.as_str())?;
     let mut file = File::create(Path::new("dist/app.css"))?;
     file.write_all(minified_css.as_bytes())?;
     Ok(())

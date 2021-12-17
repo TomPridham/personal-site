@@ -1,0 +1,38 @@
+body {
+  background-color: #292d3e;
+  color: #959dcb;
+}
+
+h2 {
+  border-bottom: 1px solid #d5d8ea;
+}
+
+a {
+  color: #959dcb;
+}
+
+a:hover {
+  color: #9cc4ff;
+}
+
+div.code {
+  background: lightgray;
+  color: black;
+}
+
+span.tag {
+  background: lightgreen;
+  color: black;
+}
+
+nav {
+  box-shadow: 0 1px 3px #d5d8ea;
+}
+
+.active-header {
+  border-bottom: 2px solid #d5d8ea;
+}
+
+.hr:not(:last-child) {
+  border-bottom: 2px solid #d5d8ea;
+}
