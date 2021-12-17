@@ -60,12 +60,20 @@ span.tag {
   max-width: 1040px;
 }
 
-#header {
+nav {
   padding: 8px;
   padding-left: 20px;
 }
 
-#header a {
+nav input {
+  display: none;
+}
+
+#hamburger span {
+  display: none;
+}
+
+nav a {
   text-decoration: none;
 }
 
@@ -109,6 +117,89 @@ span.tag {
   width: 100%;
 }
 
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+@media (max-width: 440px) {
+  /* hamburger menu adapted from: https://codepen.io/erikterwan/pres/EVzeRP */
+  nav {
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    transform-origin: 0% 0%;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+
+  nav input {
+    display: block;
+    width: 43px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    right: 35px;
+    cursor: pointer;
+
+    opacity: 0;
+    z-index: 2;
+  }
+
+  span.hamburger {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    top: 4px;
+    position: relative;
+
+    background: #959dcb;
+    border-radius: 3px;
+
+    z-index: 1;
+
+    right: 33px;
+    transform-origin: 4px 0px;
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  }
+
+  input:checked ~ span.hamburger {
+    opacity: 1;
+    transform: rotate(-45deg) translate(2px, 4px);
+  }
+
+  input:checked ~ span.hamburger:nth-last-child(4) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  input:checked ~ span.hamburger:nth-last-child(3) {
+    transform: rotate(45deg) translate(0, -10px);
+  }
+
+  #menu {
+    flex-direction: column;
+    position: absolute;
+
+    transform-origin: 0% 0%;
+    margin-top: 8px;
+    transform: translate(13px, -180px);
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+
+  nav input:checked ~ ul#menu {
+    transform: translate(-100px, -180px);
+  }
+}
+
 @page {
   size: auto;
   margin: 0;
@@ -119,7 +210,7 @@ span.tag {
     margin: 8mm;
   }
 
-  #header {
+  nav {
     display: none;
   }
 
@@ -194,7 +285,7 @@ span.tag {
   color: black;
 }
 
-#header {
+nav {
   box-shadow: 0 1px 3px #d5d8ea;
 }
 
@@ -204,6 +295,12 @@ span.tag {
 
 .hr:not(:last-child) {
   border-bottom: 2px solid #d5d8ea;
+}
+
+#menu {
+  background-color: #292d3e;
+  border-top: 1px solid #d5d8ea;
+  border-left: 1px solid #d5d8ea;
 }
 
 /* light mode */
@@ -233,7 +330,7 @@ span.tag {
     color: black;
   }
 
-  #header {
+  nav {
     box-shadow: 0 1px 3px black;
   }
 

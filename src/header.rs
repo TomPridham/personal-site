@@ -21,27 +21,37 @@ pub fn header_script(location: &str) -> Markup {
 
 pub fn header_html() -> Markup {
     html! {
-        div id="header" class="space-between"{
+        nav class="space-between"{
             a id="home" href="/"{
                 span {"tompridham.me"}
             }
-            ul id="menu" {
-                li{
-                    a id="cv" href="/cv"{"cv"}
-                }
-                li{
-                    a id="about" href="/about"{"about"}
-                }
-                li{
-                    a id="blog" href="/blog"{"blog"}
-                }
-                li{
-                    a id="projects" href="/projects"{"projects"}
-                }
-                li{
-                    a href="https://github.com/tompridham"{"github"}
+
+            div {
+                input type="checkbox" id="hamburger-toggle";
+                label for="hamburger-toggle" class="sr-only"{"toggle nav menu"}
+                span class="hamburger"{}
+                span class="hamburger"{}
+                span class="hamburger"{}
+
+                ul id="menu" {
+                    li{
+                        a id="cv" href="/cv"{"cv"}
+                    }
+                    li{
+                        a id="about" href="/about"{"about"}
+                    }
+                    li{
+                        a id="blog" href="/blog"{"blog"}
+                    }
+                    li{
+                        a id="projects" href="/projects"{"projects"}
+                    }
+                    li{
+                        a href="https://github.com/tompridham"{"github"}
+                    }
                 }
             }
+
         }
     }
 }
