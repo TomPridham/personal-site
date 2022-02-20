@@ -35,8 +35,8 @@
     ],
     "notable_achievements": [
       "completed a large feature that enabled our sellers to manage their employees",
-      "implemented a bunch of performance improvements to our customer facing site that cut load times in half",
-      "successfully pushed for the inclusion of a type library in all new js projects and incremental adoption in existing projects"
+      "implemented performance improvements to our customer facing site that cut load times in half",
+      "successfully pushed for typescript  in all new js projects and incremental adoption in existing projects"
     ],
     "technologies": [
       "react",
