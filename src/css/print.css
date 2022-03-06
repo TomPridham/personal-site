@@ -9,7 +9,7 @@
   }
 
   nav {
-    display: none;
+    display: none !important;
   }
 
   .job:nth-child(1) {
