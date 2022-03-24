@@ -35,19 +35,19 @@ pub fn header_html() -> Markup {
 
                 ul id="menu" {
                     li{
-                        a id="cv" href="/cv"{"cv"}
+                        a id="cv" href="/cv"{"CV"}
                     }
                     li{
-                        a id="about" href="/about"{"about"}
+                        a id="about" href="/about"{"About"}
                     }
                     li{
-                        a id="blog" href="/blog"{"blog"}
+                        a id="blog" href="/blog"{"Blog"}
                     }
                     li{
-                        a id="projects" href="/projects"{"projects"}
+                        a id="projects" href="/projects"{"Projects"}
                     }
                     li{
-                        a href="https://github.com/tompridham"{"github"}
+                        a href="https://github.com/tompridham"{"Github"}
                     }
                 }
             }

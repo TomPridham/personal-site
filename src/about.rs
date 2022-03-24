@@ -6,13 +6,13 @@ use std::error::Error;
 pub fn about() -> Result<Markup, Box<dyn Error>> {
     let a = html! {
         p{
-            "i started studying mechanical engineering at the university of utah and (too late) realized that i only really liked the parts of my courses that involved programming. i switched to cs, took some classes, and realized it would have been another three years before i could graduate. i ended up getting an associates in math because i had enough credits and didn't want to waste any more time at university."
+            "I started studying mechanical engineering at the University of Utah and (too late) realized that I only really liked the parts of my courses that involved programming. I switched to cs, took some classes, and realized it would have been another three years before I could graduate. I ended up getting an associates in math because I had enough credits and didn't want to waste any more time at university."
         }
         p{
-            "after i got my associates, i attended devmountain(a web dev bootcamp in provo, ut) where i primarily learned angular. i then freelanced for a couple months, mentored a class at devmountain(teaching react), mentored an after hours class at devmountain. i got my first software development job at sundance and haven't looked back."
+            "After I got my associates, I attended DevMountain(a web dev bootcamp in Provo, UT) where I primarily learned AngularJS. I then freelanced for a couple months, mentored a class at DevMountain(teaching react), mentored an after hours class at DevMountain. I got my first software development job at Sundance and haven't looked back."
         }
         p{
-            "currently, i live in millcreek with my wife and three dogs. i spend most of my time playing around with rust, doing yardwork, playing video games, or woodworking. i enjoy mountain biking, snowboarding, and indoor climbing."
+            "Currently, I live in Millcreek with my wife and three dogs. I spend most of my time playing around with rust, doing yardwork, playing video games, or woodworking. I enjoy mountain biking, snowboarding, and indoor climbing."
         }
     };
     Ok(a)

@@ -1,59 +1,59 @@
 [
   {
     "demo_url": "github.com/tompridham/brutemoji",
-    "description": "a picture replication program that works by randomly placing emoji on a blank canvas and comparing that to the original picture. if the new picture is closer than the old picture is, it keeps that image and repeats the process.",
-    "extended_description": "an old boss of mine found a site that had a person's project called brutemoji that did what my library does but in javascript. i really liked their project and used it to create a few fun images. i haven't been able to find that same site again, so i thought i would recreate it in rust. i like the final product better than other more intelligent emoji image replicators because the final image is much more chaotic and ultimately more interesting.",
+    "description": "A picture replication program that works by randomly placing emoji on a blank canvas and comparing that to the original picture. If the new picture is closer than the old picture is, it keeps that image and repeats the process.",
+    "extended_description": "An old boss of mine found a site that had a person's project called brutemoji that did what my library does but in JS. I really liked their project and used it to create a few fun images. I haven't been able to find that same site again, so I thought I would recreate it in rust. I like the final product better than other more intelligent emoji image replicators because the final image is much more chaotic and ultimately more interesting.",
     "picture_urls": [
       "tompridham.me/assets/go.png",
       "tompridham.me/assets/georgia.png",
       "tompridham.me/assets/me.png",
       "tompridham.me/assets/me_low_res.png"
     ],
-    "technologies": ["rust", "image manipulation"],
-    "title": "brutemoji"
+    "technologies": ["Rust", "image manipulation"],
+    "title": "Brutemoji"
   },
   {
-    "description": "project with other mentors at devmountain that is used to automate google calendar scheduling. implemented a react with redux front-end with a node and postgres backend.",
+    "description": "Project with other mentors at devmountain that is used to automate Google Calendar scheduling. Implemented a React with Redux front-end with a Node and Postgres backend.",
     "extended_description": "",
     "technologies": [
-      "react",
-      "redux",
-      "webpack",
-      "node",
-      "express",
-      "postgres",
-      "passport",
-      "google calendar api"
+      "React",
+      "Redux",
+      "Webpack",
+      "Node",
+      "Express",
+      "Postgres",
+      "Passport",
+      "Google Calendar api"
     ],
-    "title": "devmountain scheduler"
+    "title": "DevMountain Scheduler"
   },
   {
-    "description": "an app that uses data scraped from mtbproject.com to recommend random mountain bike trails. implemented a fully-functional webscraper to pull trail data from mtbproject.com.",
+    "description": "An app that uses data scraped from mtbproject.com to recommend random mountain bike trails. Implemented a fully-functional webscraper to pull trail data from mtbproject.com.",
     "extended_description": "",
     "technologies": [
       "webscraping",
       "text-parsing",
-      "angular material",
-      "mongo",
-      "angularjs",
-      "express",
-      "node"
+      "Angular Material",
+      "Mongo",
+      "AngularJS",
+      "Express",
+      "Node"
     ],
     "title": "routefor.me"
   },
   {
-    "description": "group project that was designed to assist in selecting plants based on use with data pulled from pfaf.org. utilized the node fs module to process over 7000 entries for our database. simplified and reorganized front-end querying code to remove over 250 lines and reduce client-side latency.",
+    "description": "Group project that was designed to assist in selecting plants based on use with data pulled from pfaf.org. Utilized the Node fs module to process over 7000 entries for our database. Simplified and reorganized front-end querying code to remove over 250 lines and reduce client-side latency.",
     "extended_description": "",
     "technologies": [
       "text-parsing",
-      "skeleton",
-      "passport",
-      "gulp",
-      "sass",
-      "mongo",
-      "angularjs",
-      "express",
-      "node"
+      "Skeleton",
+      "Passport",
+      "Gulp",
+      "Sass",
+      "Mongo",
+      "AngularJS",
+      "Express",
+      "Node"
     ],
     "title": "plantsfor.life"
   }

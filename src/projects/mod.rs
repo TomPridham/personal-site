@@ -9,13 +9,13 @@ pub use wasmsweeper::wasmsweeper;
 
 pub fn projects() -> Result<Markup, Box<dyn Error>> {
     let projects_html = html! {
-        h1{"projects"}
+        h1{"Projects"}
         ul.list{
             li{
-                a href="/projects/wasmsweeper"{"wasmsweeper"}
+                a href="/projects/wasmsweeper"{"Wasmsweeper"}
             }
             li{
-                a href="/projects/brutemoji"{"brutemoji"}
+                a href="/projects/brutemoji"{"Brutemoji"}
             }
         }
     };

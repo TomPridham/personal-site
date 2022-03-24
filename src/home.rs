@@ -2,17 +2,17 @@ extern crate maud;
 use maud::{html, Markup};
 
 pub fn home() -> Markup {
-    let name = "tom pridham";
+    let name = "Tom Pridham";
     html! {
-        p{"hi, i'm " (name) "!"}
-        p{"nice to meet you."}
-        p{"this is my website. it's written in rust using a html templating library called maud. i think it's pretty neat."}
+        p{"Hi, I'm " (name) "!"}
+        p{"Nice to meet you."}
+        p{"This is my website. It's written in Rust using a HTML templating library called Maud. I think it's pretty neat."}
         p{
-            "my contact info is here."
+            "My contact info is here."
             ul{
-                li{"email: pridham.tom@gmail.com"}
-                li{"phone: 702-285-7906"}
-                li{"github: " a href="https://github.com/tompridham"{"github.com/tompridham"}}
+                li{"Email: pridham.tom@gmail.com"}
+                li{"Phone: 702-285-7906"}
+                li{"Github: " a href="https://github.com/tompridham"{"github.com/tompridham"}}
             }
         }
     }

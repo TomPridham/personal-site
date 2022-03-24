@@ -1,115 +1,115 @@
 [
   {
-    "company": "pdq.com",
+    "company": "PDQ.com",
     "duties": [
-      "implement standards and best practices for js guild, js repos across the org, and rust repos",
-      "mentor other developers to ensure code quality, consistency, and performance",
-      "provide feedback on architecture and tech proposals and brainstorm solutions"
+      "Implement standards and best practices for JS guild, JS repos across the org, and Rust repos",
+      "Mentor other developers to ensure code quality, consistency, and performance",
+      "Provide feedback on architecture and tech proposals and brainstorm solutions"
     ],
     "notable_achievements": [
-      "successfully pitched a rust project, took the lead on development, helped teammembers get up to speed on rust",
-      "utilized web workers to implement a/b testing for our marketing and sales sites",
-      "re implemented our sales and customer portal to better match business requirements and improve analytics",
-      "moved our marketing site to a modern pipeline and deployment environment using k8s",
-      "created a live chat and QA app for viewers of our weekly webcast using firebase as a backend"
+      "Successfully pitched a Rust project, took the lead on development, helped fellow teammates get up to speed on Rust",
+      "Utilized web workers to implement A/B testing for our marketing and sales sites",
+      "Re-implemented our sales and customer portal to better match business requirements and improve analytics",
+      "Moved our marketing site to a modern pipeline and deployment environment using K8s",
+      "Created a live chat and QA app for viewers of our weekly webcast using Firebase as a backend"
     ],
     "technologies": [
-      "typescript",
-      "rust",
-      "web workers",
-      "node",
-      "react",
-      "docker",
-      "firebase",
-      "k8s"
+      "Typescript",
+      "Rust",
+      "Web Workers",
+      "Node",
+      "React",
+      "Docker",
+      "Firebase",
+      "K8s"
     ],
-    "time": "january 2020 - present",
-    "title": "senior software engineer"
+    "time": "January 2020 - present",
+    "title": "Senior Software Engineer"
   },
   {
-    "company": "jane",
+    "company": "Jane",
     "duties": [
-      "perform rigorous code review and uplift other engineers",
-      "create new features based off of designs and product specifications",
-      "solve difficult problems, simplify code, delete things"
+      "Perform rigorous code review and uplift other engineers",
+      "Create new features based off of designs and product specifications",
+      "Solve difficult problems, simplify code, delete things"
     ],
     "notable_achievements": [
-      "completed a large feature that enabled our sellers to manage their employees",
-      "implemented performance improvements to our customer facing site that cut load times in half",
-      "successfully pushed for typescript  in all new js projects and incremental adoption in existing projects"
+      "Completed a large feature that enabled our sellers to manage their employees",
+      "Implemented performance improvements to our customer facing site that cut load times in half",
+      "Successfully pushed for Typescript in all new JS projects and incremental adoption in existing projects"
     ],
     "technologies": [
-      "react",
-      "typescript",
-      "graphql",
-      "koa",
-      "node",
-      "angularjs",
-      "c#"
+      "React",
+      "Typescript",
+      "Graphql",
+      "Koa",
+      "Node",
+      "AngularJS",
+      "C#"
     ],
-    "time": "october 2017 - december 2019",
-    "title": "software engineer"
+    "time": "October 2017 - December 2019",
+    "title": "Software Engineer"
   },
   {
-    "company": "sundance institute",
+    "company": "Sundance Institute",
     "duties": [
-      "work with stakeholders to implement their vision on our site",
-      "assist other departments with keeping their pages up to date and pretty",
-      "create standalone internal applications to enable other departments to work more efficiently"
+      "Work with stakeholders to implement their vision on our site",
+      "Assist other departments with keeping their pages up to date and pretty",
+      "Create standalone internal applications to enable other departments to work more efficiently"
     ],
     "notable_achievements": [
-      "rewrote an angularjs frontend app used to manage press applicants in angular",
-      "wrote a backing node service that handled caching and interacting with a postgres database"
+      "Rewrote an AngularJS frontend app used to manage press applicants in Angular to match new business requirements",
+      "Wrote a backing Node service that handled caching and interacting with a Postgres database"
     ],
     "technologies": [
-      "angular",
-      "typescript",
-      "express",
-      "mongo",
-      "node",
-      "postgres",
-      "redis"
+      "Angular",
+      "Typescript",
+      "Express",
+      "Mongo",
+      "Node",
+      "Postgres",
+      "Redis"
     ],
-    "time": "february 2017 - october 2017",
-    "title": "web developer"
+    "time": "February 2017 - October 2017",
+    "title": "Web Developer"
   },
   {
-    "company": "perkcity",
+    "company": "PerkNow",
     "duties": [
-      "work on angularjs and ionic app to get ready for publishing in the app and play stores",
-      "implement designs and work with the team to solve problems and implement new features",
-      "manage deployments of node service and new app versions in app and play stores"
+      "Work on AngularJS and Ionic app to get ready for publishing in the Apple App and Google Play stores",
+      "Implement designs and work with the team to solve problems and implement new features",
+      "Manage deployments of Node service and new app versions in Apple App and Google Play stores"
     ],
     "notable_achievements": [
-      "finished mvp angularjs and ionic app that was published in the app and play stores",
-      "finished the node service that powered the app using express and mysql",
-      "implemented security improvements in the node service",
-      "modularized the frontend code and implemented a better build process"
+      "Finished MVP AngularJS and Ionic app that was published in the Apple App and Google Play stores",
+      "Finished the Node service that powered the app using Express and MySQL",
+      "Implemented security improvements in the Node service",
+      "Modularized the frontend code and implemented a better build process"
     ],
-    "technologies": ["angularjs", "express", "ionic", "mysql", "node"],
-    "time": "october 2016 - october 2017",
-    "title": "web developer"
+    "technologies": ["AngularJS", "Express", "Ionic", "MySQL", "Node"],
+    "time": "October 2016 - October 2017",
+    "title": "Web Developer"
   },
   {
-    "company": "devmountain",
+    "company": "DevMountain",
     "duties": [
-      "assist students with projects and lessons",
-      "explain tough concepts and improve student's understanding",
-      "work on internal applications"
+      "Assist students with projects and lessons",
+      "Explain tough concepts and improve student's understanding",
+      "Work on internal applications"
     ],
     "notable_achievements": [
-      "implemented an internal app that helped instructors manage curriculum",
-      "helped students implement their vision and understand errors"
+      "Implemented an internal app that helped instructors manage curriculum",
+      "Helped students implement their vision and understand errors"
     ],
     "technologies": [
-      "angularjs",
-      "express",
-      "mongo",
-      "node",
-      "postgres",
-      "react"
+      "AngularJS",
+      "Express",
+      "Mongo",
+      "Node",
+      "Postgres",
+      "React"
     ],
-    "time": "october 2016 - october 2017",
-    "title": "student mentor"
+    "time": "October 2016 - October 2017",
+    "title": "Student Mentor"
   }
 ]

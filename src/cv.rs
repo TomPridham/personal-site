@@ -30,48 +30,48 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
 
     let cv_html = html! {
         div.p-row{
-            h1{"tom pridham"}
+            h1{"Tom Pridham"}
             div.bottom-spacer{
-                h2.p-fw{"contact"}
+                h2.p-fw{"Contact"}
                 ul{
-                    li{"email: pridham.tom@gmail.com"}
-                    li{"phone: 702-285-7906"}
-                    li{"website: tompridham.me"}
-                    li{"github: github.com/tompridham"}
+                    li{"Email: pridham.tom@gmail.com"}
+                    li{"Phone: 702-285-7906"}
+                    li{"Website: tompridham.me"}
+                    li{"Github: github.com/tompridham"}
                 }
             }
         }
         div.bottom-spacer{
-            h2{"skills"}
+            h2{"Skills"}
             ul.p-twocol{
-                li{"react"}
-                li{"rust"}
-                li{"node"}
-                li{"typescript"}
-                li{"graphql"}
-                li{"angularjs"}
-                li{"postgres"}
+                li{"React"}
+                li{"Rust"}
+                li{"Node"}
+                li{"Typescript"}
+                li{"GraphQL"}
+                li{"AngularJS"}
+                li{"Postgres"}
             }
         }
         div.bottom-spacer{
-            h2{"job history"}
+            h2{"Job History"}
             div{
                 @for cv_item in cv_items {
                     div.bottom-spacer.hr.job{
                         h3{(cv_item.company ) " | " (cv_item.time) " | " (cv_item.title)}
-                        h4{"duties"}
+                        h4{"Duties"}
                         ul{
                             @for duty in cv_item.duties{
                                 li{(duty)}
                             }
                         }
-                        h4{"notable achievements"}
+                        h4{"Notable Achievements"}
                         ul{
                             @for n in cv_item.notable_achievements{
                                 li{(n)}
                             }
                         }
-                        h4{"technologies used"}
+                        h4{"Technologies Used"}
                         ul.p-twocol{
                             @for t in cv_item.technologies{
                                 li{(t)}
@@ -83,7 +83,7 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
             }
         }
         div.bottom-spacer{
-            h2 #projects{"projects"}
+            h2 #projects{"Projects"}
             div{
                 @for project in projects{
                     div.bottom-spacer.hr.project{
@@ -99,12 +99,12 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
             }
         }
         div{
-            h2{"education"}
+            h2{"Education"}
             div{
-                h3{"devmoutain - May 2016"}
-                p{"studied web development focused on the mean-stack. devmountain is a programming bootcamp - https://devmounta.in/web-immersive"}
-                h3{"salt lake community college - december 2015"}
-                p{"a.s. in mathematics"}
+                h3{"DevMoutain - May 2016"}
+                p{"Studied web development focused on the MEAN-Stack. DevMountain is a programming bootcamp - https://devmounta.in/web-immersive"}
+                h3{"Salt Lake Community College - December 2015"}
+                p{"A.S. in Mathematics"}
             }
         }
     };

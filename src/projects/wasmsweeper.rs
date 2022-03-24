@@ -4,13 +4,13 @@ use std::error::Error;
 
 pub fn wasmsweeper() -> Result<Markup, Box<dyn Error>> {
     let wasmsweeper_html = html! {
-        h1{"wasmsweeper"}
+        h1{"Wasmsweeper"}
         p{
-            "a minesweeper clone written in rust, using the library bevy, compiled into wasm. the repo is "
+            "A minesweeper clone written in Rust, using the library Bevy, compiled into WASM. The repo is "
                 a href="https://github.com/tompridham/wasmsweeper"{"here"}
-            ". it uses webgl2, so it doesn't currently work in safari. you might need to enable webgl2 for it to work. if it's not working in firefox, you might need to do: about:config => webgl.force-enabled = true"
+            ". It uses WebGL2, so it doesn't currently work in Safari. You might need to enable WebGL2 for it to work. If it's not working in Firefox, you might need to do: about:config => webgl.force-enabled = true"
         }
-        p{"click anywhere to get started. right click mines to flag them"}
+        p{"Click anywhere to get started. Right click mines to flag them"}
         script type="module"{
 "
 import init from './minesweeper.js';

@@ -20,28 +20,28 @@ pub use windows_event_data_with_rust_2::windows_event_data_with_rust_2;
 
 pub fn blog() -> Result<Markup, Box<dyn Error>> {
     let cv_html = html! {
-        h2{"things i've written"}
+        h2{"Things I've written"}
         ul.list{
             li{
-                a href="/blog/javascript_detective_work"{"javascript detective work 🕵️"}
+                a href="/blog/javascript_detective_work"{"Javascript Detective Work 🕵️"}
             }
             li{
-                a href="/blog/windows_event_data_with_rust_2"{"accessing windows event data with rust part 2"}
+                a href="/blog/windows_event_data_with_rust_2"{"Accessing Windows Event Data with Rust Part 2"}
             }
             li{
-                a href="/blog/windows_event_data_with_rust"{"accessing windows event data with rust part 1"}
+                a href="/blog/windows_event_data_with_rust"{"Accessing Windows Event Data with Rust Part 1"}
             }
             li{
-                a href="/blog/a_b_testing_with_cloudflare_workers"{"a/b testing with cloudflare workers"}
+                a href="/blog/a_b_testing_with_cloudflare_workers"{"A/B Testing with Cloudflare Workers"}
             }
             li{
-                a href="/blog/getting_the_first_job"{"getting the first job"}
+                a href="/blog/getting_the_first_job"{"Getting the First Job"}
             }
             li{
-                a href="/blog/svg_vs_icon_font"{"svgs vs icon font"}
+                a href="/blog/svg_vs_icon_font"{"SVGs Vs Icon Fonts"}
             }
             li{
-                a href="/blog/why_is_rust_so_fast"{"why is rust so fast"}
+                a href="/blog/why_is_rust_so_fast"{"Why is Rust so Fast"}
             }
         }
     };
