@@ -37,14 +37,16 @@ type HtmlFunctionAndPath = (fn() -> HtmlResult, &'static str);
 
 fn generate_markup(html: Markup, path: &str) -> Markup {
     html! {
-        (DOCTYPE)
-        (head())
-        body {
-            (header_html())
-            div id="container"{
-                (html)
+        html lang="en-US" {
+            (DOCTYPE)
+            (head())
+            body {
+                (header_html())
+                div id="container"{
+                    (html)
+                }
+                (header_script(path))
             }
-            (header_script(path))
         }
     }
 }
