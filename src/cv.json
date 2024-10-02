@@ -15,12 +15,12 @@
     ],
     "technologies": [
       "Rust",
+      "Diesel",
+      "Prost",
+      "Axum",
       "Typescript",
       "React",
-      "Node",
-      "gRPC",
-      "Protobuf",
-      "K8s"
+      "Node"
     ],
     "time": "May 2022 - Present",
     "title": "Senior Software Engineer"
