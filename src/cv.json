@@ -1,4 +1,30 @@
 [
+ {
+    "company": "Osmos",
+    "duties": [
+      "Implement features independently across our Typescript and Rust codebases",
+      "Work closely with CS team to solve customer problems, ranging from visual bugs to database improvements",
+      "Reviewing code and technical specifications, providing feedback and solutions"
+    ],
+    "notable_achievements": [
+      "Ran standup and other planning meetings while team lead was on paternity leave",
+      "Implemented a brand new notification service in Rust within a month of starting",
+      "Simplified significant portions of our existing logic to be more understandable, maintainable and testable",
+      "Pushed for higher testing standards and updated our CI to enable better e2e testing",
+      "Added analytics to our product to allow Product and Design to make more informed decisions"
+    ],
+    "technologies": [
+      "Rust",
+      "Typescript",
+      "React",
+      "Node",
+      "gRPC",
+      "Protobuf",
+      "K8s"
+    ],
+    "time": "May 2022 - Present",
+    "title": "Senior Software Engineer"
+  },
   {
     "company": "PDQ.com",
     "duties": [
@@ -23,7 +49,7 @@
       "Firebase",
       "K8s"
     ],
-    "time": "January 2020 - present",
+    "time": "January 2020 - May 2022",
     "title": "Senior Software Engineer"
   },
   {
