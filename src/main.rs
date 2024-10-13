@@ -105,9 +105,10 @@ fn generate_css_file() -> Result<(), Box<dyn Error>> {
         let mut file = File::open(path)?;
         file.read_to_end(&mut css)?;
     }
-    let minified_css = minify(String::from_utf8(css)?.as_str())?;
+    let stringified_css = String::from_utf8(css)?;
+    let minified_css = minify(stringified_css.as_str())?;
     let mut file = File::create(Path::new("dist/app.css"))?;
-    file.write_all(minified_css.as_bytes())?;
+    file.write_all(&minified_css.to_string().into_bytes())?;
     Ok(())
 }
 
