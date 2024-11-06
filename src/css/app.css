@@ -61,6 +61,8 @@ span.tag {
 }
 
 nav {
+  position: sticky;
+  top: 0px;
   padding: 8px;
   padding-left: 20px;
 }

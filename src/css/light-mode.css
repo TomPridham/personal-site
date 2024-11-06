@@ -26,6 +26,7 @@
 
   nav {
     box-shadow: 0 1px 3px black;
+    background-color: white;
   }
 
   .active-header {
