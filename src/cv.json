@@ -1,5 +1,5 @@
 [
- {
+  {
     "company": "Osmos",
     "duties": [
       "Implement features independently across our Typescript and Rust codebases",
@@ -35,7 +35,6 @@
     "notable_achievements": [
       "Successfully pitched a Rust project, took the lead on development, helped fellow teammates get up to speed on Rust",
       "Utilized web workers to implement A/B testing for our marketing and sales sites",
-      "Re-implemented our sales and customer portal to better match business requirements and improve analytics",
       "Moved our marketing site to a modern pipeline and deployment environment using K8s",
       "Created a live chat and QA app for viewers of our weekly webcast using Firebase as a backend"
     ],

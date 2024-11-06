@@ -32,7 +32,7 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
         div.p-row{
             h1{"Tom Pridham"}
             div.bottom-spacer{
-                h2.p-fw{"Contact"}
+                h2.p-hide{"Contact"}
                 ul{
                     li{"Email: pridham.tom@gmail.com"}
                     li{"Phone: 702-285-7906"}

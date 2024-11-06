@@ -30,8 +30,7 @@
     padding-top: 8mm;
   }
 
-  .project:nth-child(3n) {
-    page-break-after: always;
+  .project:nth-child(2n) {
     border-bottom: none;
   }
 
@@ -45,8 +44,8 @@
     justify-content: space-between;
   }
 
-  .p-fw {
-    width: 100%;
+  .p-hide {
+    display: none;
   }
 
   .p-twocol {
