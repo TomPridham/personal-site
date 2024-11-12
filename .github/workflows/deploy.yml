@@ -12,6 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Install nightly Rust
+      run: rustup update nightly
+
     - name: Bump version and push tag
       uses: anothrNick/github-tag-action@1.17.2
       env:
