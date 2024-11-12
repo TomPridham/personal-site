@@ -20,7 +20,7 @@ jobs:
 
     - name: Build site
       run: |
-        cargo run
+        cargo +nightly run
         cp CNAME dist/CNAME
 
     - name: Deploy
