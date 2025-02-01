@@ -71,6 +71,10 @@ nav input {
   display: none;
 }
 
+input[type="file"] {
+  opacity: 0;
+}
+
 nav a {
   text-decoration: none;
 }
@@ -105,6 +109,7 @@ nav a {
 .col {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
 
 .bottom-spacer {
@@ -122,4 +127,21 @@ nav a {
   width: 1px;
   height: 1px;
   overflow: hidden;
+}
+
+.button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  height: auto;
+  max-width: 25%;
+  border: 1px ridge black;
+}
+.button:hover,
+.button:focus {
+  outline-style: solid;
+  outline-color: transparent;
+}
+.button:active {
+  box-shadow: 0 0 0 3px black;
 }

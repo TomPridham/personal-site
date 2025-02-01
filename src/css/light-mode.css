@@ -36,4 +36,18 @@
   .hr:not(:last-child) {
     border-bottom: 2px solid black;
   }
+
+  .button {
+    background-color: white;
+    color: black;
+  }
+
+  .button:hover,
+  .button:focus {
+    background-color: gray;
+    color: black;
+  }
+  .button:active {
+    box-shadow: 0 0 0 1px black;
+  }
 }

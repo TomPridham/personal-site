@@ -26,7 +26,7 @@ use header::{header_html, header_script};
 use home::home;
 use maud::{html, Markup, DOCTYPE};
 use minifier::css::minify;
-use projects::{brutemoji, projects, wasmsweeper};
+use projects::{brutemoji, projects, random_task, wasmsweeper};
 use std::error::Error;
 use std::fs::{DirBuilder, File};
 use std::io::prelude::*;
@@ -83,6 +83,7 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
         (projects, "projects"),
         (brutemoji, "projects/brutemoji"),
         (wasmsweeper, "projects/wasmsweeper"),
+        (random_task, "projects/random_task"),
     ];
 
     html_files.iter().try_for_each(|(fun, name)| {

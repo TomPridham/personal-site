@@ -37,3 +37,14 @@ nav {
 .hr:not(:last-child) {
   border-bottom: 2px solid #d5d8ea;
 }
+
+.button {
+  background-color: #9cc4ff;
+  color: black;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #959dcb;
+  color: white;
+}
