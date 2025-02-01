@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="utf8"><meta lang="en-US"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="author" content="Tom Pridham"><meta name="description" content="Portfolio site for Tom Pridham. I like being good at things."><title>tompridham.me</title><link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon"><link rel="stylesheet" href="/app.css"></head><body><nav class="space-between"><a id="home" href="/"><span>tompridham.me</span></a><div><input type="checkbox" id="hamburger-toggle"><label for="hamburger-toggle" class="sr-only">toggle nav menu</label><span class="hamburger"></span><span class="hamburger"></span><span class="hamburger"></span><ul id="menu"><li><a id="cv" href="/cv">CV</a></li><li><a id="about" href="/about">About</a></li><li><a id="blog" href="/blog">Blog</a></li><li><a id="projects" href="/projects">Projects</a></li><li><a href="https://github.com/tompridham">Github</a></li></ul></div></nav><div id="container"><h1>Random Task</h1><p>A little utility to pick a task from an arbitrarily nested list of tasks. The repo is <a href="https://github.com/TomPridham/random-task">here</a>. I made this because I get stuck trying to decide what thing to do sometimes. I couldn't use a normal random number generator because I have like 100 house projects and I didn't want them to dominate the list entirely. So, I made this to select tasks more fairly from a nested list.</p><div class="col"><label class="button" for="task_upload_input">upload task list</label><input type="file" id="task_upload_input"></input><span aria-live="polite" id="file_name_display">No file selected</span><button class="button" id="task_select_button">get random task</button><p id="task_display"></p></div><script type="module">
+import init, {get_task,build_nested_task_list }from './random_task.js';
+await init()
+
+const inputId = 'task_upload_input';
+const buttonId = 'task_select_button';
+let tasks = [];
+let chosenTask = '????';
+const uploadHandler = function(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    document.getElementById('file_name_display').textContent = `Selected file: ${file.name}`;
+    reader.onload = function() {
+        tasks = build_nested_task_list(reader.result.split('\n'), '  ');
+    };
+    reader.onerror = function() {
+        showMessage('broke');
+    };
+    reader.readAsText(file);
+}
+const getTaskHandler = function() {
+    if (tasks.length === 0){
+        return
+    }
+    chosenTask = get_task(tasks);
+    document.getElementById('task_display').innerText= chosenTask
+}
+document.getElementById('task_upload_input').addEventListener('change', uploadHandler)
+document.getElementById('task_select_button').addEventListener('click', getTaskHandler)
+</script></div><script type="text/javascript">
+    const active = document
+      .querySelector('.active-header');
+    if(active){
+      active.classList.remove('active-header');
+    }
+    document
+      .getElementById('projects/random_task'.split('/')[0])
+      .classList
+      .add('active-header')
+</script></body></html>
