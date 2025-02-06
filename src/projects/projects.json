@@ -1,6 +1,22 @@
 [
   {
-    "demo_url": "github.com/tompridham/brutemoji",
+    "demo_url": "https://tompridham.me/projects/random_task/",
+    "repo_url": "https://github.com/TomPridham/random-task",
+    "description": "A little utility that will parse a tab nested list of tasks and select a random one",
+    "extended_description": "I sometimes have trouble picking what task I should work on next. I have a lot of tasks that are all relatively equal priority, but I have a lot of more tasks related to house projects. So I can't just use a normal random number generator unless I want to spend 90% of my time doing house tasks. This will parse an arbitrarily deep nested list where each <TAB> denotes a nesting level and traverse down the list, selecting a random task at each step until it reaches the bottom",
+    "technologies": ["Rust", "WASM"],
+    "title": "Random Task"
+  },
+  {
+    "demo_url": "https://tompridham.me/projects/wasmsweeper/",
+    "repo_url": "https://github.com/TomPridham/wasmsweeper",
+    "description": "A basic minesweeper implementation written with Bevy that compiles to WASM",
+    "extended_description": "I really like minesweeper and wanted to try making a game. It's a pretty basic implementation that includes some niceties like chording. The images are all hand drawn by me if you couldn't tell. It compiles to WASM and works on my website because it makes sharing it a lot easier and I thought it was neat.",
+    "technologies": ["Rust", "Bevy", "WASM"],
+    "title": "WasmSweeper"
+  },
+  {
+    "repo_url": "github.com/tompridham/brutemoji",
     "description": "A picture replication program that works by randomly placing emoji on a blank canvas and comparing that to the original picture. If the new picture is closer than the old picture is, it keeps that image and repeats the process.",
     "extended_description": "An old boss of mine found a site that had a person's project called brutemoji that did what my library does but in JS. I really liked their project and used it to create a few fun images. I haven't been able to find that same site again, so I thought I would recreate it in rust. I like the final product better than other more intelligent emoji image replicators because the final image is much more chaotic and ultimately more interesting.",
     "picture_urls": [
@@ -13,8 +29,8 @@
     "title": "Brutemoji"
   },
   {
+    "hide": true,
     "description": "Project with other mentors at devmountain that is used to automate Google Calendar scheduling. Implemented a React with Redux front-end with a Node and Postgres backend.",
-    "extended_description": "",
     "technologies": [
       "React",
       "Redux",
@@ -28,22 +44,18 @@
     "title": "DevMountain Scheduler"
   },
   {
+    "repo_url": "https://github.com/TomPridham/routefor.me",
     "description": "An app that uses data scraped from mtbproject.com to recommend random mountain bike trails. Implemented a fully-functional webscraper to pull trail data from mtbproject.com.",
-    "extended_description": "",
     "technologies": [
       "webscraping",
       "text-parsing",
-      "Angular Material",
-      "Mongo",
-      "AngularJS",
-      "Express",
-      "Node"
+      "AngularJS"
     ],
     "title": "routefor.me"
   },
   {
+    "hide": true,
     "description": "Group project that was designed to assist in selecting plants based on use with data pulled from pfaf.org. Utilized the Node fs module to process over 7000 entries for our database. Simplified and reorganized front-end querying code to remove over 250 lines and reduce client-side latency.",
-    "extended_description": "",
     "technologies": [
       "text-parsing",
       "Skeleton",

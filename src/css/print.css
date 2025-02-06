@@ -12,30 +12,22 @@
     display: none !important;
   }
 
-  .job:nth-child(1) {
-    page-break-after: always;
-    border-bottom: none;
-  }
-
   .job:nth-child(2n) {
     padding-top: 8mm;
   }
 
   .job:nth-child(2n + 1) {
     page-break-after: always;
-    border-bottom: none;
+    border-bottom: none !important;
   }
 
   #projects {
     padding-top: 8mm;
   }
 
-  .project:nth-child(2n) {
-    border-bottom: none;
-  }
-
-  .project:last-child {
-    padding-top: 8mm;
+  .project p,
+  .education p {
+    margin: 0;
   }
 
   .p-row {
@@ -51,5 +43,9 @@
   .p-twocol {
     column-count: 2;
     column-width: 20px;
+  }
+
+  a {
+    text-decoration: none;
   }
 }

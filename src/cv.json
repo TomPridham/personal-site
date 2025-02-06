@@ -76,6 +76,7 @@
     "title": "Software Engineer"
   },
   {
+    "hide": true,
     "company": "Sundance Institute",
     "duties": [
       "Work with stakeholders to implement their vision on our site",
@@ -99,6 +100,7 @@
     "title": "Web Developer"
   },
   {
+    "hide": true,
     "company": "PerkNow",
     "duties": [
       "Work on AngularJS and Ionic app to get ready for publishing in the Apple App and Google Play stores",
@@ -116,6 +118,7 @@
     "title": "Web Developer"
   },
   {
+    "hide": true,
     "company": "DevMountain",
     "duties": [
       "Assist students with projects and lessons",
