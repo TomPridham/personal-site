@@ -2,25 +2,27 @@
   {
     "company": "Osmos",
     "duties": [
-      "Implement features independently across our Typescript and Rust codebases",
+      "Implement features independently across our React, Typescript and Rust codebases",
       "Work closely with CS team to solve customer problems, ranging from visual bugs to database improvements",
       "Reviewing code and technical specifications, providing feedback and solutions"
     ],
     "notable_achievements": [
       "Ran standup and other planning meetings while team lead was on paternity leave",
       "Implemented a brand new notification service in Rust within a month of starting",
-      "Simplified significant portions of our existing logic to be more performant, maintainable and testable",
-      "Pushed for higher testing standards and updated our CI to enable better e2e testing",
-      "Added analytics to our product to allow Product and Design to make more informed decisions"
+      "Fixed long standing race condition during account creation, so account creation was fault tolerant and idempotent",
+      "Major overhaul of billing service to accommodate new billing tiers, improve test coverage, and improve error handling",
+      "Updated CI processes to create per PR deployments to improve e2e testing and feedback cycle",
+      "Added analytics client to allow Product and Design more insight into real world app usage"
     ],
     "technologies": [
       "Rust",
       "Diesel",
-      "Prost",
-      "Axum",
-      "Typescript",
+      "Nextest",
       "React",
-      "Node"
+      "Typescript",
+      "Jest",
+      "Github Actions",
+      "GCP"
     ],
     "time": "May 2022 - Oct 2024",
     "title": "Senior Software Engineer"
@@ -33,10 +35,11 @@
       "Provide feedback on architecture and tech proposals and brainstorm solutions"
     ],
     "notable_achievements": [
-      "Successfully pitched a Rust project, took the lead on development, helped fellow teammates get up to speed on Rust",
-      "Utilized web workers to implement A/B testing for our marketing and sales sites",
+      "Pitched doing a pivotal part of new initiative in Rust, took the lead on development, helped teammates onboard with Rust",
+      "Utilized Cloudflare Workers to implement A/B testing for our marketing and sales sites",
       "Moved our marketing site to a modern pipeline and deployment environment using K8s",
-      "Created a live chat and QA app for viewers of our weekly webcast using Firebase as a backend"
+      "Created a live chat and QA app for viewers of our weekly webcast using Firebase as a backend",
+      "Diagnosed and fixed a build issue that was including 6MB of JSON in every page"
     ],
     "technologies": [
       "Typescript",
@@ -46,7 +49,7 @@
       "React",
       "Docker",
       "Firebase",
-      "K8s"
+      "Kubernetes"
     ],
     "time": "January 2020 - May 2022",
     "title": "Senior Software Engineer"

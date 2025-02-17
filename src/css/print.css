@@ -5,7 +5,7 @@
 
 @media print {
   body {
-    margin: 8mm;
+    margin: 4mm !important;
   }
 
   nav {

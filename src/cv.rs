@@ -55,6 +55,7 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
                 li{"Rust"}
                 li{"Node"}
                 li{"Typescript"}
+                li{"Testing"}
                 li{"Performance"}
                 li{"Accessibility"}
                 li{"Webassembly"}
