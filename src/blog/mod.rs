@@ -1,6 +1,7 @@
 extern crate maud;
 
 mod a_b_testing_with_cloudflare_workers;
+mod developing_the_right_way;
 mod getting_the_first_job;
 mod javascript_detective_work;
 mod solution_engineering;
@@ -10,6 +11,7 @@ mod windows_event_data_with_rust;
 mod windows_event_data_with_rust_2;
 
 pub use a_b_testing_with_cloudflare_workers::a_b_testing_with_cloudflare_workers;
+pub use developing_the_right_way::developing_the_right_way;
 pub use getting_the_first_job::getting_the_first_job;
 pub use javascript_detective_work::javascript_detective_work;
 use maud::{html, Markup};
@@ -24,6 +26,9 @@ pub fn blog() -> Result<Markup, Box<dyn Error>> {
     let cv_html = html! {
         h2{"Things I've written"}
         ul.list{
+            li{
+                a href="/blog/developing_the_right_way"{"Developing a Big Feature the Right Way"}
+            }
             li{
                 a href="/blog/engineering_solutions"{"Engineering Solutions"}
             }
