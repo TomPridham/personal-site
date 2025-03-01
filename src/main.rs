@@ -16,8 +16,8 @@ mod projects;
 use about::about;
 use blog::{
     a_b_testing_with_cloudflare_workers, blog, developing_the_right_way, engineering_solutions,
-    getting_the_first_job, javascript_detective_work, svg_vs_icon_font, why_is_rust_so_fast,
-    windows_event_data_with_rust, windows_event_data_with_rust_2,
+    getting_the_first_job, javascript_detective_work, svg_vs_icon_font, updating_a_dsl,
+    why_is_rust_so_fast, windows_event_data_with_rust, windows_event_data_with_rust_2,
 };
 use cv::cv;
 use fs_extra::dir;
@@ -81,6 +81,7 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
         (why_is_rust_so_fast, "blog/why_is_rust_so_fast"),
         (engineering_solutions, "blog/engineering_solutions"),
         (developing_the_right_way, "blog/developing_the_right_way"),
+        (updating_a_dsl, "blog/updating_a_dsl"),
         (cv, "cv"),
         (projects, "projects"),
         (brutemoji, "projects/brutemoji"),

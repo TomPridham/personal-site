@@ -6,6 +6,7 @@ mod getting_the_first_job;
 mod javascript_detective_work;
 mod solution_engineering;
 mod svg_vs_icon_font;
+mod updating_a_dsl;
 mod why_is_rust_so_fast;
 mod windows_event_data_with_rust;
 mod windows_event_data_with_rust_2;
@@ -18,6 +19,7 @@ use maud::{html, Markup};
 pub use solution_engineering::engineering_solutions;
 use std::error::Error;
 pub use svg_vs_icon_font::svg_vs_icon_font;
+pub use updating_a_dsl::updating_a_dsl;
 pub use why_is_rust_so_fast::why_is_rust_so_fast;
 pub use windows_event_data_with_rust::windows_event_data_with_rust;
 pub use windows_event_data_with_rust_2::windows_event_data_with_rust_2;
@@ -26,6 +28,9 @@ pub fn blog() -> Result<Markup, Box<dyn Error>> {
     let cv_html = html! {
         h2{"Things I've written"}
         ul.list{
+            li{
+                a href="/blog/updating_a_dsl"{"Updating a DSL for Consistency and Testability"}
+            }
             li{
                 a href="/blog/developing_the_right_way"{"Developing a Big Feature the Right Way"}
             }
