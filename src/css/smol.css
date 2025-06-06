@@ -13,7 +13,7 @@
   }
 
   nav input {
-    display: block;
+    display: block !important;
     width: 43px;
     height: 100%;
     position: absolute;
