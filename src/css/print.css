@@ -44,6 +44,11 @@
     column-count: 2;
     column-width: 20px;
   }
+  .p-fourcol {
+    column-count: 4;
+    column-width: 20px;
+    line-height: 1.1;
+  }
 
   a {
     text-decoration: none;
