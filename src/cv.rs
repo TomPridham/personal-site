@@ -96,7 +96,7 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
                                 p{"Repo: " a href=(repo_url){(repo_url)}}
                             }
                             p{(project.description)}
-                            ul.p-twocol{
+                            ul.fourcol.p-fourcol{
                                 @for tech in project.technologies{
                                     li{(tech)}
                                 }

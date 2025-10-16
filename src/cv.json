@@ -6,6 +6,7 @@
     "Git",
     "Node",
     "Jest",
+    "React Testing Library",
     "Nextest",
     "React",
     "Diesel",
@@ -21,21 +22,25 @@
     "Graphql",
     "Mongo",
     "MySQL",
-    "Firebase",
-    "C#",
+    "Performance",
     "Redis"
   ],
   "jobs": [
     {
       "company": "Osmos",
       "notable_achievements": [
-        "Ran standup and other planning meetings during team lead's paternity leave",
         "Implemented an email notification service using Sendgrid, Axum, and GCP Pub/Sub",
         "Decreased number of support tickets related to account creation by 100%, by diagnosing and fixing long standing race condition",
         "Updated billing service to accommodate new business requirements, improve test coverage from ~5% to 70%, and improve error handling",
         "Used Github Actions to create per PR deployments to improve e2e testing and reduce design/dev churn",
         "Added Amplitude analytics client to gather metrics and insight into real world app usage",
-        "Pushed for and helped implement stricter testing requirements, increasing overall test coverage across the entire codebase"
+        "Pushed for and helped implement stricter testing requirements, increasing overall test coverage across the entire codebase",
+        "Integrated MUI and React Testing Library to improve accessibility and completed major overhaul to replace unaccessible components",
+        "Diagnosed and fixed performance issue in schema detection, reducing worst case time from >5 mins to 10 seconds",
+        "Identified database query that was causing a memory leak and eventual deadlock, implemented a couple mitigation strategies to alleviate symptoms",
+        "Documented existing DSL specification, brought test coverage up to 100%, worked with stakeholders to remove inconsistencies and reduce user pitfalls",
+        "Ran standup and other planning meetings during team lead's paternity leave",
+        "Maintained user facing documentation, adding examples and explainers for common support questions"
       ],
       "time": "May 2022 - Oct 2024",
       "title": "Senior Software Engineer"
@@ -43,14 +48,14 @@
     {
       "company": "PDQ.com",
       "notable_achievements": [
-        "Implemented standards and best practices for JS guild, including setting testing standards",
-        "Mentor other developers to ensure code quality, consistency, and performance",
-        "Provide feedback on architecture and tech proposals and brainstorm solutions",
+        "Implemented standards and best practices for JS guild, including setting testing expectations for existing and new projects",
         "Pitched doing a pivotal part of new initiative in Rust, took the lead on development, helped teammates onboard with Rust",
+        "Provided feedback on architecture and tech proposals related to other parts of new initiative",
         "Utilized Cloudflare Workers to implement A/B testing for our marketing and sales sites",
-        "Moved our marketing site to a modern pipeline and deployment environment using K8s",
-        "Created a live chat and QA app for viewers of our weekly webcast using Firebase as a backend",
-        "Diagnosed and fixed a build issue that was including 6MB of JSON in every page"
+        "Moved our marketing site to a modern pipeline and deployment environment using K8s and Github Actions",
+        "Created a live chat and QA app for viewers of our weekly webcast using Firebase",
+        "Diagnosed and fixed a build issue that was including 6MB of JSON in every page and causing excessive network transfers",
+        "Mentored other developers to ensure code quality, consistency, and performance"
       ],
       "time": "January 2020 - May 2022",
       "title": "Senior Software Engineer"
@@ -58,12 +63,13 @@
     {
       "company": "Jane",
       "notable_achievements": [
-        "Perform rigorous code review and uplift other engineers",
-        "Create new features based off of designs and product specifications",
-        "Gradual migration of old Angular codebase to React",
-        "Completed a large feature that enabled our sellers to manage their employees",
-        "Implemented performance improvements to our customer facing site that cut load times in half",
-        "Successfully pushed for Typescript in all new JS projects and incremental adoption in existing projects"
+        "Completed a gradual migration of extensive AngularJS codebase to React",
+        "Completed a large feature that enabled our sellers to manage their employees, using Graphql and recompose",
+        "Implemented performance improvements to our customer facing site that cut home page load times from 20 seconds to 4 seconds",
+        "Successfully pushed for Typescript in all new JS projects and incremental adoption in existing projects",
+        "Removed a large number of superfluous libraries from our app, reducing bundle size and increasing page speed and developer productivity",
+        "Worked on an accessibility initiative that brought the site from basically 0% accessibility to ~95% coverage",
+        "Helped increase test coverage from ~20% to ~60%"
       ],
       "time": "October 2017 - December 2019",
       "title": "Software Engineer"
