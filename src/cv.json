@@ -1,146 +1,119 @@
-[
-  {
-    "company": "Osmos",
-    "duties": [
-      "Implement features independently across our React, Typescript and Rust codebases",
-      "Work closely with CS team to solve customer problems, ranging from visual bugs to database improvements",
-      "Reviewing code and technical specifications, providing feedback and solutions"
-    ],
-    "notable_achievements": [
-      "Ran standup and other planning meetings while team lead was on paternity leave",
-      "Implemented a brand new notification service in Rust within a month of starting",
-      "Fixed long standing race condition during account creation, so account creation was fault tolerant and idempotent",
-      "Major overhaul of billing service to accommodate new billing tiers, improve test coverage, and improve error handling",
-      "Updated CI processes to create per PR deployments to improve e2e testing and feedback cycle",
-      "Added analytics client to allow Product and Design more insight into real world app usage"
-    ],
-    "technologies": [
-      "Rust",
-      "Diesel",
-      "Nextest",
-      "React",
-      "Typescript",
-      "Jest",
-      "Github Actions",
-      "GCP"
-    ],
-    "time": "May 2022 - Oct 2024",
-    "title": "Senior Software Engineer"
-  },
-  {
-    "company": "PDQ.com",
-    "duties": [
-      "Implement standards and best practices for JS guild, JS repos across the org, and Rust repos",
-      "Mentor other developers to ensure code quality, consistency, and performance",
-      "Provide feedback on architecture and tech proposals and brainstorm solutions"
-    ],
-    "notable_achievements": [
-      "Pitched doing a pivotal part of new initiative in Rust, took the lead on development, helped teammates onboard with Rust",
-      "Utilized Cloudflare Workers to implement A/B testing for our marketing and sales sites",
-      "Moved our marketing site to a modern pipeline and deployment environment using K8s",
-      "Created a live chat and QA app for viewers of our weekly webcast using Firebase as a backend",
-      "Diagnosed and fixed a build issue that was including 6MB of JSON in every page"
-    ],
-    "technologies": [
-      "Typescript",
-      "Rust",
-      "Web Workers",
-      "Node",
-      "React",
-      "Docker",
-      "Firebase",
-      "Kubernetes"
-    ],
-    "time": "January 2020 - May 2022",
-    "title": "Senior Software Engineer"
-  },
-  {
-    "company": "Jane",
-    "duties": [
-      "Perform rigorous code review and uplift other engineers",
-      "Create new features based off of designs and product specifications",
-      "Gradual migration of old Angular codebase to React"
-    ],
-    "notable_achievements": [
-      "Completed a large feature that enabled our sellers to manage their employees",
-      "Implemented performance improvements to our customer facing site that cut load times in half",
-      "Successfully pushed for Typescript in all new JS projects and incremental adoption in existing projects"
-    ],
-    "technologies": [
-      "React",
-      "Typescript",
-      "Graphql",
-      "Koa",
-      "Node",
-      "AngularJS",
-      "C#"
-    ],
-    "time": "October 2017 - December 2019",
-    "title": "Software Engineer"
-  },
-  {
-    "hide": true,
-    "company": "Sundance Institute",
-    "duties": [
-      "Work with stakeholders to implement their vision on our site",
-      "Assist other departments with keeping their pages up to date and pretty",
-      "Create standalone internal applications to enable other departments to work more efficiently"
-    ],
-    "notable_achievements": [
-      "Rewrote an AngularJS frontend app used to manage press applicants in Angular to match new business requirements",
-      "Wrote a backing Node service that handled caching and interacting with a Postgres database"
-    ],
-    "technologies": [
-      "Angular",
-      "Typescript",
-      "Express",
-      "Mongo",
-      "Node",
-      "Postgres",
-      "Redis"
-    ],
-    "time": "February 2017 - October 2017",
-    "title": "Web Developer"
-  },
-  {
-    "hide": true,
-    "company": "PerkNow",
-    "duties": [
-      "Work on AngularJS and Ionic app to get ready for publishing in the Apple App and Google Play stores",
-      "Implement designs and work with the team to solve problems and implement new features",
-      "Manage deployments of Node service and new app versions in Apple App and Google Play stores"
-    ],
-    "notable_achievements": [
-      "Finished MVP AngularJS and Ionic app that was published in the Apple App and Google Play stores",
-      "Finished the Node service that powered the app using Express and MySQL",
-      "Implemented security improvements in the Node service",
-      "Modularized the frontend code and implemented a better build process"
-    ],
-    "technologies": ["AngularJS", "Express", "Ionic", "MySQL", "Node"],
-    "time": "October 2016 - October 2017",
-    "title": "Web Developer"
-  },
-  {
-    "hide": true,
-    "company": "DevMountain",
-    "duties": [
-      "Assist students with projects and lessons",
-      "Explain tough concepts and improve student's understanding",
-      "Work on internal applications"
-    ],
-    "notable_achievements": [
-      "Implemented an internal app that helped instructors manage curriculum",
-      "Helped students implement their vision and understand errors"
-    ],
-    "technologies": [
-      "AngularJS",
-      "Express",
-      "Mongo",
-      "Node",
-      "Postgres",
-      "React"
-    ],
-    "time": "October 2016 - October 2017",
-    "title": "Student Mentor"
-  }
-]
+{
+  "skills": [
+    "Rust",
+    "Typescript",
+    "CSS",
+    "Git",
+    "Node",
+    "Jest",
+    "React Testing Library",
+    "Nextest",
+    "React",
+    "Diesel",
+    "Postgres",
+    "Docker",
+    "GCP",
+    "Azure",
+    "Github Actions",
+    "Kubernetes",
+    "Angular",
+    "Web Workers",
+    "Express",
+    "Graphql",
+    "Mongo",
+    "MySQL",
+    "Performance",
+    "Redis"
+  ],
+  "jobs": [
+    {
+      "company": "Osmos",
+      "notable_achievements": [
+        "Implemented an email notification service using Sendgrid, Axum, and GCP Pub/Sub",
+        "Decreased number of support tickets related to account creation by 100%, by diagnosing and fixing long standing race condition",
+        "Updated billing service to accommodate new business requirements, improve test coverage from ~5% to 70%, and improve error handling",
+        "Used Github Actions to create per PR deployments to improve e2e testing and reduce design/dev churn",
+        "Added Amplitude analytics client to gather metrics and insight into real world app usage",
+        "Pushed for and helped implement stricter testing requirements, increasing overall test coverage across the entire codebase",
+        "Integrated MUI and React Testing Library to improve accessibility and completed major overhaul to replace unaccessible components",
+        "Diagnosed and fixed performance issue in schema detection, reducing worst case time from >5 mins to 10 seconds",
+        "Identified database query that was causing a memory leak and eventual deadlock, implemented a couple mitigation strategies to alleviate symptoms",
+        "Documented existing DSL specification, brought test coverage up to 100%, worked with stakeholders to remove inconsistencies and reduce user pitfalls",
+        "Ran standup and other planning meetings during team lead's paternity leave",
+        "Maintained user facing documentation, adding examples and explainers for common support questions"
+      ],
+      "time": "May 2022 - Oct 2024",
+      "title": "Senior Software Engineer"
+    },
+    {
+      "company": "PDQ.com",
+      "notable_achievements": [
+        "Implemented standards and best practices for JS guild, including setting testing expectations for existing and new projects",
+        "Pitched doing a pivotal part of new initiative in Rust, took the lead on development, helped teammates onboard with Rust",
+        "Provided feedback on architecture and tech proposals related to other parts of new initiative",
+        "Utilized Cloudflare Workers to implement A/B testing for our marketing and sales sites",
+        "Moved our marketing site to a modern pipeline and deployment environment using K8s and Github Actions",
+        "Created a live chat and QA app for viewers of our weekly webcast using Firebase",
+        "Diagnosed and fixed a build issue that was including 6MB of JSON in every page and causing excessive network transfers",
+        "Mentored other developers to ensure code quality, consistency, and performance"
+      ],
+      "time": "January 2020 - May 2022",
+      "title": "Senior Software Engineer"
+    },
+    {
+      "company": "Jane",
+      "notable_achievements": [
+        "Completed a gradual migration of extensive AngularJS codebase to React",
+        "Completed a large feature that enabled our sellers to manage their employees, using Graphql and recompose",
+        "Implemented performance improvements to our customer facing site that cut home page load times from 20 seconds to 4 seconds",
+        "Successfully pushed for Typescript in all new JS projects and incremental adoption in existing projects",
+        "Removed a large number of superfluous libraries from our app, reducing bundle size and increasing page speed and developer productivity",
+        "Worked on an accessibility initiative that brought the site from basically 0% accessibility to ~95% coverage",
+        "Helped increase test coverage from ~20% to ~60%"
+      ],
+      "time": "October 2017 - December 2019",
+      "title": "Software Engineer"
+    },
+    {
+      "hide": true,
+      "company": "Sundance Institute",
+      "notable_achievements": [
+        "Work with stakeholders to implement their vision on our site",
+        "Assist other departments with keeping their pages up to date and pretty",
+        "Create standalone internal applications to enable other departments to work more efficiently",
+        "Rewrote an AngularJS frontend app used to manage press applicants in Angular to match new business requirements",
+        "Wrote a backing Node service that handled caching and interacting with a Postgres database"
+      ],
+      "time": "February 2017 - October 2017",
+      "title": "Web Developer"
+    },
+    {
+      "hide": true,
+      "company": "PerkNow",
+      "notable_achievements": [
+        "Work on AngularJS and Ionic app to get ready for publishing in the Apple App and Google Play stores",
+        "Implement designs and work with the team to solve problems and implement new features",
+        "Manage deployments of Node service and new app versions in Apple App and Google Play stores",
+        "Finished MVP AngularJS and Ionic app that was published in the Apple App and Google Play stores",
+        "Finished the Node service that powered the app using Express and MySQL",
+        "Implemented security improvements in the Node service",
+        "Modularized the frontend code and implemented a better build process"
+      ],
+      "time": "October 2016 - October 2017",
+      "title": "Web Developer"
+    },
+    {
+      "hide": true,
+      "company": "DevMountain",
+      "notable_achievements": [
+        "Assist students with projects and lessons",
+        "Explain tough concepts and improve student's understanding",
+        "Work on internal applications",
+        "Implemented an internal app that helped instructors manage curriculum",
+        "Helped students implement their vision and understand errors"
+      ],
+      "time": "October 2016 - October 2017",
+      "title": "Student Mentor"
+    }
+  ]
+}

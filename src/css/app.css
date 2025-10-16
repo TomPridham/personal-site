@@ -111,6 +111,11 @@ nav a {
   align-items: flex-start;
 }
 
+.fourcol {
+  column-count: 4;
+  column-width: 20px;
+}
+
 .bottom-spacer {
   padding-bottom: 8px;
 }
