@@ -7,11 +7,13 @@ extern crate serde_json;
 
 mod about;
 mod blog;
-mod cv;
+mod full_cv;
 mod head;
 mod header;
 mod home;
+mod other_cv;
 mod projects;
+mod software_eng_cv;
 
 use about::about;
 use blog::{
@@ -20,14 +22,16 @@ use blog::{
     updating_a_dsl, why_is_rust_so_fast, windows_event_data_with_rust,
     windows_event_data_with_rust_2,
 };
-use cv::cv;
 use fs_extra::dir;
+use full_cv::full_cv;
 use head::head;
 use header::{header_html, header_script};
 use home::home;
 use maud::{html, Markup, DOCTYPE};
 use minifier::css::minify;
+use other_cv::other_cv;
 use projects::{brutemoji, projects, random_task, wasmsweeper};
+use software_eng_cv::sw_cv;
 use std::error::Error;
 use std::fs::{DirBuilder, File};
 use std::io::prelude::*;
@@ -84,7 +88,9 @@ fn generate_html_files() -> Result<(), Box<dyn Error>> {
         (developing_the_right_way, "blog/developing_the_right_way"),
         (updating_a_dsl, "blog/updating_a_dsl"),
         (perf_testing_js, "blog/perf_testing_js"),
-        (cv, "cv"),
+        (sw_cv, "cv"),
+        (other_cv, "other_cv"),
+        (full_cv, "full_cv"),
         (projects, "projects"),
         (brutemoji, "projects/brutemoji"),
         (wasmsweeper, "projects/wasmsweeper"),

@@ -16,29 +16,27 @@ struct Job {
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-struct Project {
-    demo_url: Option<String>,
-    description: String,
+struct VolunteerExperience {
     #[serde(default)]
     hide: bool,
-    repo_url: Option<String>,
-    technologies: Vec<String>,
-    title: String,
+    organization: String,
+    experience: Vec<String>,
+    time: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 struct Cv {
     skills: Vec<String>,
     jobs: Vec<Job>,
+    volunteering: Vec<VolunteerExperience>,
 }
 
-pub fn cv() -> Result<Markup, Box<dyn Error>> {
-    let cv_file = read_to_string(Path::new("src/cv.json"))?;
+pub fn other_cv() -> Result<Markup, Box<dyn Error>> {
+    let cv_file = read_to_string(Path::new("src/other_cv.json"))?;
     let cv_items: Cv = serde_json::from_str(cv_file.as_str())?;
     let jobs = cv_items.jobs;
     let skills = cv_items.skills;
-    let projects_file = read_to_string(Path::new("src/projects/projects.json"))?;
-    let projects: Vec<Project> = serde_json::from_str(projects_file.as_str())?;
+    let volunteering_experience = cv_items.volunteering;
 
     let cv_html = html! {
         div.p-row{
@@ -67,7 +65,7 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
             div{
                 @for cv_item in jobs{
                     @if !cv_item.hide{
-                        div.bottom-spacer.hr.job{
+                        div.bottom-spacer.hr.other_job{
                             h3{(cv_item.company ) " | " (cv_item.time) " | " (cv_item.title)}
                             h4{"Notable Achievements"}
                             ul{
@@ -81,24 +79,16 @@ pub fn cv() -> Result<Markup, Box<dyn Error>> {
             }
         }
         div.bottom-spacer{
-            h2 #projects{"Projects"}
+            h2 #volunteer{"Volunteer Experience"}
             div{
-                @for project in projects{
-                    @if !project.hide{
-                        div.bottom-spacer.hr.project{
-                            h3{(project.title)}
-                            @if project.demo_url.is_some() {
-                                @let demo_url = project.demo_url.unwrap();
-                                p{"Demo: " a href=(demo_url){(demo_url)}}
-                            }
-                            @if project.repo_url.is_some() {
-                                @let repo_url = project.repo_url.unwrap();
-                                p{"Repo: " a href=(repo_url){(repo_url)}}
-                            }
-                            p{(project.description)}
-                            ul.fourcol.p-fourcol{
-                                @for tech in project.technologies{
-                                    li{(tech)}
+                @for vexp in volunteering_experience {
+                    @if !vexp.hide{
+                        div.bottom-spacer.hr.volunteer{
+                            h3{(vexp.organization) " | " (vexp.time)}
+                            h4{"Experience"}
+                            ul{
+                                @for exp in vexp.experience{
+                                    li{(exp)}
                                 }
                             }
                         }

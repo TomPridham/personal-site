@@ -12,6 +12,9 @@
     display: none !important;
   }
 
+  .break {
+    page-break-after: always;
+  }
   .job:nth-child(2n) {
     padding-top: 8mm;
   }
@@ -20,9 +23,21 @@
     page-break-after: always;
     border-bottom: none !important;
   }
+  .other_job:nth-last-child(2) {
+    page-break-after: unset !important;
+    border-bottom: 2px solid black !important;
+  }
+  .other_job:nth-last-child(1) {
+    padding-top: unset;
+  }
 
   #projects {
     padding-top: 8mm;
+  }
+  #volunteer {
+    padding-top: 8mm;
+    page-break-before: always;
+    border-bottom: none !important;
   }
 
   .project p,

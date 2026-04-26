@@ -7,7 +7,7 @@ pub fn home() -> Markup {
         p{"Hi, I'm " (name) "!"}
         p{"Nice to meet you."}
         p{"This is my website. It's written in Rust using a HTML templating library called Maud."}
-        p{"I have been a software engineer since 2016. I started out doing purely frontend. I've ended up doing whatever was necessary to keep team momentum up. This has ranged from running meetings while our team lead was on paternity leave, to updating CI/CD pipelines to enable better testing, to updating C# apis, integrating data ingestion platforms to gather user metrics, and building a Windows Event agent in Rust. I enjoy learning new things and am never content to stand still. I like improving accessibility, testability, and performance."}
+        p{"I have been a software engineer since 2016. I'm not really sure that's what I want to do anymore. I'm currently exploring different opportunities."}
         p{
             "My contact info is here."
             ul{

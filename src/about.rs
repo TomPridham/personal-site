@@ -9,10 +9,10 @@ pub fn about() -> Result<Markup, Box<dyn Error>> {
             "I started studying mechanical engineering at the University of Utah and (too late) realized that I only really liked the parts of my courses that involved programming. I switched to cs, took some classes, and realized it would have been another three years before I could graduate. I ended up getting an associates in math because I had enough credits and didn't want to waste any more time at university."
         }
         p{
-            "After I got my associates, I attended DevMountain(a web dev bootcamp in Provo, UT) where I primarily learned AngularJS. I then freelanced for a couple months, mentored a class at DevMountain(teaching react), mentored an after hours class at DevMountain. I got my first software development job at Sundance and haven't looked back."
+            "After I got my associates, I attended DevMountain(a web dev bootcamp in Provo, UT) where I primarily learned AngularJS. I then freelanced for a couple months, mentored a class at DevMountain(teaching react), mentored an after hours class at DevMountain. I got my first software development job at Sundance and was doing sofware engineering for the next 9 years."
         }
         p{
-            "Currently, I live in Millcreek with my wife and three dogs. I spend most of my time playing around with rust, doing yardwork, playing video games, or woodworking. I enjoy mountain biking, snowboarding, and indoor climbing."
+            "Currently, I live in Millcreek with my wife and three dogs. I spend most of my time playing around with rust, doing yardwork, playing video games, or woodworking. I enjoy mountain biking, snowboarding, and being a big strong guy."
         }
     };
     Ok(a)

@@ -1,0 +1,71 @@
+{
+  "skills": [
+    "Soldering",
+    "Electronic Repair",
+    "Plant Identification",
+    "Invasive Plant Removal",
+    "Spreadsheets",
+    "Writing Guides",
+    "Forklift Certified",
+    "Customer Service",
+    "Mechanical Repair"
+  ],
+  "jobs": [
+    {
+      "company": "WorkforceQA",
+      "notable_achievements": [
+        "Reduced invoice discrepencies with a large customer by creating and maintaining a spreadsheet of current market prices",
+        "Onboarded new customers and maintained relations with current customers"
+      ],
+      "time": "Apr 2014 - Feb 2016",
+      "title": "Implementation Specialist"
+    },
+    {
+      "company": "Sam's Club",
+      "notable_achievements": [
+        "Earned Employee of the Month in Sept 2013 and Jan 2014",
+        "Implemented an experimental layout change of our 95k square foot warehouse that eventually became the blueprint for other warehouses",
+        "Maintained inventory and presentation of Electronics Department and assisted customers with technical questions"
+      ],
+      "time": "Sept 2012 - Mar 2014",
+      "title": "Electronics Associate"
+    },
+    {
+      "company": "Incomm",
+      "notable_achievements": [
+        "Researched and diagnosed a hardware issue that brought over 1,000 units back into service",
+        "Created an inventory and repair tracking spreadsheet that increased department efficiency",
+        "Developed repair and best practices guides for onboarding future employees"
+      ],
+      "time": "Oct 2011 - Aug 2012",
+      "title": "Computer Repair Technician"
+    }
+  ],
+  "volunteering": [
+    {
+      "organization": "Cottonwood Canyons Foundation",
+      "experience": [
+        "Identifying and removing invasive plants from the Cottonwood Canyons",
+        "Planting native plants to restore degraded areas",
+        "Repairing and rerouting trails"
+      ],
+      "time": "Apr 2025 - Present"
+    },
+    {
+      "organization": "Salt Lake City Bicycle Collective",
+      "experience": [
+        "Repairing and refurbishing bikes for children and disadvantaged populations",
+        "Diagnosing issues with donated bicycles",
+        "Stripping bikes with critical defects of usable parts"
+      ],
+      "time": "Mar 2025 - Jul 2025"
+    },
+    {
+      "organization": "City of Millcreek",
+      "experience": [
+        "Help adults gain digital literacy and computer skills"
+      ],
+      "time": "Jan 2025 - Nov 2025"
+    }
+  ]
+}
